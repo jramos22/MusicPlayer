@@ -1,0 +1,84 @@
+.profile__wrapper {
+  border: 1px solid blue;
+  display: flex;
+  margin-top: 100px;
+}
+
+.profile__bio {
+  background-color: $second-background;
+  border-radius: $third-border-radius;
+  width: 500px;
+}
+
+.profile__info {
+  //border: 1px solid red;
+  margin: 0 auto;
+  width: 90%;
+
+  p {
+    color: $first-text-color;
+    font-size: 18px;
+  }
+  .profile__name {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    img {
+      height: 30px;
+      width: 30px;
+    }
+  }
+  .profile__recents {
+
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 10px;
+    img {
+      height: 30px;
+      width: 30px;
+    }
+  }
+  .profile__favorites {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 10px;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+/* Playlists */
+
+.users__playlist {
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  li button {
+    background-color: $second-background;
+    border-radius: $second-border-radius;
+    border: 1px solid $fifth-color;
+    color: $first-text-color;
+    font-size: 18px;
+    height: 50px;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    text-align: start;
+    width: 100%;
+  }
+  li button:hover {
+    background-color: $nineth-color;
+  }
+}
+
+

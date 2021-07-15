@@ -1,0 +1,25 @@
+{
+  "name": "MusicPlayer",
+  "version": "1.0.0",
+  "description": "This is a project of Music Player",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w sass -o css",
+    "sass-build": "node-sass sass -o css --output-style compressed",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jramos22/MusicPlayer.git"
+  },
+  "keywords": [],
+  "author": "Kendoll Castro & Jose Ramos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jramos22/MusicPlayer/issues"
+  },
+  "homepage": "https://github.com/jramos22/MusicPlayer#readme",
+  "dependencies": {
+    "node-sass": "^6.0.1"
+  }
+}

@@ -1,0 +1,88 @@
+/*Artist View*/
+.artist__wrapper {
+
+  max-width: 100%;
+
+  h2 {
+    color: white;
+    margin: 40px 0 15px;
+  }
+  span {
+    color: $fourth-color;
+  }
+  @media(min-width: 1720px){
+    margin-top: 80px;
+  }
+}
+
+.artist__display {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* .artist__songs {
+
+  @media(min-width: 1300px){
+    height: 390px;
+    overflow-y: scroll;
+  }
+}
+ */
+.lists__songs {
+  width: 700px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 30px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    background-color: $second-background;
+    border-radius: $third-border-radius;
+  }
+  img {
+    width: 45px;
+  }
+  p {
+    color: white;
+  }
+  span {
+    margin-left: 40px;
+    color: $second-text-color;
+  }
+  button {
+    border: none;
+    background-color: $second-background;
+
+    img {
+      width: 35px;
+    }
+  }
+}
+
+/* Artist Bio */
+.artist-bio {
+  background-color: $second-background;
+  border-radius: $third-border-radius;
+  border: 1px solid $third-color;
+}
+
+.artist-info {
+  width: 300px;
+  padding: 30px 50px;
+
+  img {
+    width: 300px;
+  }
+  h3 {
+    color: $third-text-color;
+  }
+  p {
+    color: $first-text-color;
+  }
+}
