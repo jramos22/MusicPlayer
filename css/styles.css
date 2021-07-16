@@ -120,7 +120,7 @@ body {
 .profile__wrapper {
   border: 1px solid blue;
   display: flex;
-  margin-top: 100px; }
+  margin-top: 50px; }
 
 .profile__bio {
   background-color: #211F27;
@@ -134,31 +134,129 @@ body {
     color: #ffff;
     font-size: 18px; }
   .profile__info .profile__name {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; }
+    margin-top: 15px; }
+    .profile__info .profile__name form {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      width: 100%; }
+      .profile__info .profile__name form label {
+        color: #ffff;
+        font-size: 18px;
+        padding: 10px 10px; }
+      .profile__info .profile__name form input {
+        display: none; }
+      .profile__info .profile__name form button {
+        background-color: #211F27;
+        border: none;
+        cursor: pointer;
+        margin-right: 10px;
+        padding: 0; }
     .profile__info .profile__name img {
       height: 30px;
       width: 30px; }
   .profile__info .profile__recents {
     align-items: center;
+    background-color: #1B1B1B;
+    border-radius: 15px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    margin-left: 10px; }
+    margin: 20px 0;
+    padding: 0 10px 10px 10px; }
+    .profile__info .profile__recents .recent__title {
+      align-items: center;
+      border-radius: 15px;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      width: 100%; }
+      .profile__info .profile__recents .recent__title p {
+        margin: 10px; }
+    .profile__info .profile__recents .song__recent {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%; }
+      .profile__info .profile__recents .song__recent p {
+        margin-left: -150px; }
     .profile__info .profile__recents img {
       height: 30px;
+      margin-left: 5px;
       width: 30px; }
+    .profile__info .profile__recents button {
+      background-color: #1B1B1B;
+      border: none;
+      cursor: pointer;
+      margin: 0;
+      padding: 0; }
   .profile__info .profile__favorites {
     align-items: center;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin-left: 10px; }
+    justify-content: space-between; }
     .profile__info .profile__favorites img {
-      width: 30px;
-      height: 30px; }
+      height: 30px;
+      width: 30px; }
+
+/* Accordion styles */
+.tabs {
+  border-radius: 15px;
+  border: none;
+  overflow: hidden; }
+
+.tab {
+  color: white;
+  overflow: hidden;
+  width: 100%; }
+  .tab__label {
+    align-items: center;
+    background: #211F27;
+    cursor: pointer;
+    display: flex;
+    font-size: 18px;
+    height: 40px;
+    justify-content: space-between;
+    padding: 10px 10px;
+    /* Icon */ }
+    .tab__label:hover {
+      background: #1B1B1B;
+      border-radius: 15px 15px 0 0; }
+    .tab__label::after {
+      content: "\276F";
+      height: 18px;
+      margin-right: 7px;
+      text-align: center;
+      transition: all .35s;
+      width: 18px; }
+  .tab__content {
+    background: #1B1B1B;
+    color: white;
+    max-height: 0;
+    padding: 0 1em;
+    transition: all .35s; }
+  .tab-close {
+    background: white;
+    cursor: pointer;
+    display: flex;
+    font-size: 0.75em;
+    justify-content: flex-end;
+    padding: 16px; }
+    .tab-close:hover {
+      background: #211F27; }
+  .tab input {
+    display: none; }
+
+input:checked {
+  display: none; }
+  input:checked + .tab__label {
+    background: #1B1B1B; }
+    input:checked + .tab__label::after {
+      transform: rotate(90deg); }
+  input:checked ~ .tab__content {
+    max-height: 100vh;
+    padding: 1em; }
 
 /* Playlists */
 .users__playlist ul {
@@ -168,14 +266,15 @@ body {
 .users__playlist li button {
   background-color: #211F27;
   border-radius: 10px;
-  border: 1px solid #79797B;
+  border: none;
   color: #ffff;
   font-size: 18px;
   height: 50px;
-  padding: 10px 10px;
   margin-bottom: 10px;
+  padding: 10px 10px;
   text-align: start;
   width: 100%; }
 
 .users__playlist li button:hover {
-  background-color: #1B1B1B; }
+  background-color: #1B1B1B;
+  border: 1px solid #79797B; }
