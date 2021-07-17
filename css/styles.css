@@ -38,16 +38,96 @@ body {
 .header__logo img {
   width: 160px; }
 
-.header__menu ul {
+.nav__menu {
   display: flex;
   list-style: none; }
-
-.header__menu li {
-  margin-left: 30px;
-  color: white; }
-  .header__menu li a:link {
+  .nav__menu li {
     color: white;
-    text-decoration: none; }
+    margin-left: 30px; }
+    .nav__menu li a:link {
+      color: white;
+      text-decoration: none; }
+    .nav__menu li a:visited {
+      color: #ffff; }
+    .nav__menu li a:hover {
+      color: #FF6F1E; }
+
+.header__menu ul li a:active {
+  color: #FF6F1E; }
+
+.artist__title {
+  color: white; }
+
+.logged__user {
+  border: 1px solid red;
+  display: flex; }
+
+.artist__view {
+  display: flex;
+  justify-content: space-between;
+  width: 55%;
+  border: 1px solid red; }
+
+.gorillaz__view img {
+  width: 150px;
+  height: 150px; }
+
+.gorillaz__view h4 {
+  color: #ffff; }
+
+.gorillaz__view p {
+  color: #79797B;
+  font-size: 16px; }
+
+.aurora__view img {
+  width: 150px;
+  height: 150px; }
+
+.aurora__view h4 {
+  color: #ffff; }
+
+.aurora__view p {
+  color: #79797B;
+  font-size: 16px; }
+
+.radiohead__view img {
+  width: 150px;
+  height: 150px; }
+
+.radiohead__view h4 {
+  color: #ffff; }
+
+.radiohead__view p {
+  color: #79797B;
+  font-size: 16px; }
+
+.logged__view {
+  background-color: #211F27;
+  border-radius: 15px;
+  border: 1px solid #6320EE;
+  width: 500px; }
+
+.logged__info {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid yellow; }
+  .logged__info .logged__text h2 {
+    color: white; }
+  .logged__info .logged__text p {
+    color: #ffff; }
+  .logged__info .logged__img {
+    display: flex; }
+    .logged__info .logged__img img {
+      width: 200px; }
+  .logged__info .logged__song h3 {
+    color: white; }
+  .logged__info .logged__song p {
+    color: white; }
+  .logged__info .logged__song button {
+    background-color: #211F27;
+    border: none; }
+    .logged__info .logged__song button img {
+      width: 35px; }
 
 /*Artist View*/
 .artist__wrapper {
@@ -278,3 +358,9 @@ input:checked {
 .users__playlist li button:hover {
   background-color: #1B1B1B;
   border: 1px solid #79797B; }
+
+.music__animation {
+  border: 1px solid white; }
+
+.music__song {
+  border: 1px solid red; }
