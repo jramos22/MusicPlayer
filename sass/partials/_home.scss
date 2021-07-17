@@ -1,25 +1,23 @@
 .artist__title {
-    color: white;
+    margin: 80px 0 40px 0;
+    color: $first-text-color;
 }
 
 .logged__user {
-    border: 1px solid red;
     display: flex;
-    //flex-direction: column;
+    justify-content: space-between;
 }
 
 .artist__view {
     display: flex;
     justify-content: space-between;
     width: 55%;
-    border: 1px solid red;
 }
 
 .gorillaz__view {
 
     img {
         width: 150px;
-        height: 150px;
     }
     h4{
         color: $first-text-color;
@@ -34,7 +32,6 @@
 
     img {
         width: 150px;
-        height: 150px;
     }
     h4{
         color: $first-text-color;
@@ -49,7 +46,6 @@
 
     img {
         width: 150px;
-        height: 150px;
     }
     h4{
         color: $first-text-color;
@@ -65,58 +61,54 @@
     background-color: $second-background;
     border-radius: $third-border-radius;
     border: 1px solid $third-color;
-    width: 500px;
-
-   
+    padding: 30px;
+    width: 380px;
 }
 
 .logged__info {
-
-    width: 80%;
-    margin: 0 auto;
-    border: 1px solid yellow;
-
+    
     .logged__text {
 
         h2 {
-            color: white;
+            color: $first-text-color;
+            margin-bottom: 15px;
         }
         p {
             color: $first-text-color;
+            margin-bottom: 40px;
         }
     }
-    .logged__img {
-        display: flex;
+}
+.logged__img {
+
+    display: flex;
+
+    .logged__img-artis{
 
         img {
             width: 200px;
         }
-
-
     }
-
-    .logged__song {
-
-        h3 {
-            color: white;
-        }
-        p {
-            color: white;
-        }
-        button {
-
-            background-color: $second-background;
-            border: none;
-            
-            img {
-                width: 35px;
-            }
-           
-        }
-
-    }
-    
-    
 }
 
+.logged__song {
+    margin-left: 40px;
 
+    h3 {
+        color: $first-text-color;
+        margin-left: 5px;
+    }
+    p {
+        color: $second-text-color;
+        margin-left: 5px;
+    }
+    button {
+        background-color: $second-background;
+        border: none;
+        padding: 0;
+
+        img {
+            width: 35px;
+        }
+    }
+}

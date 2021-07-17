@@ -56,21 +56,20 @@ body {
   color: #FF6F1E; }
 
 .artist__title {
-  color: white; }
+  margin: 80px 0 40px 0;
+  color: #ffff; }
 
 .logged__user {
-  border: 1px solid red;
-  display: flex; }
+  display: flex;
+  justify-content: space-between; }
 
 .artist__view {
   display: flex;
   justify-content: space-between;
-  width: 55%;
-  border: 1px solid red; }
+  width: 55%; }
 
 .gorillaz__view img {
-  width: 150px;
-  height: 150px; }
+  width: 150px; }
 
 .gorillaz__view h4 {
   color: #ffff; }
@@ -80,8 +79,7 @@ body {
   font-size: 16px; }
 
 .aurora__view img {
-  width: 150px;
-  height: 150px; }
+  width: 150px; }
 
 .aurora__view h4 {
   color: #ffff; }
@@ -91,8 +89,7 @@ body {
   font-size: 16px; }
 
 .radiohead__view img {
-  width: 150px;
-  height: 150px; }
+  width: 150px; }
 
 .radiohead__view h4 {
   color: #ffff; }
@@ -105,28 +102,35 @@ body {
   background-color: #211F27;
   border-radius: 15px;
   border: 1px solid #6320EE;
-  width: 500px; }
+  padding: 30px;
+  width: 380px; }
 
-.logged__info {
-  width: 80%;
-  margin: 0 auto;
-  border: 1px solid yellow; }
-  .logged__info .logged__text h2 {
-    color: white; }
-  .logged__info .logged__text p {
-    color: #ffff; }
-  .logged__info .logged__img {
-    display: flex; }
-    .logged__info .logged__img img {
-      width: 200px; }
-  .logged__info .logged__song h3 {
-    color: white; }
-  .logged__info .logged__song p {
-    color: white; }
-  .logged__info .logged__song button {
+.logged__info .logged__text h2 {
+  color: #ffff;
+  margin-bottom: 15px; }
+
+.logged__info .logged__text p {
+  color: #ffff;
+  margin-bottom: 40px; }
+
+.logged__img {
+  display: flex; }
+  .logged__img .logged__img-artis img {
+    width: 200px; }
+
+.logged__song {
+  margin-left: 40px; }
+  .logged__song h3 {
+    color: #ffff;
+    margin-left: 5px; }
+  .logged__song p {
+    color: #79797B;
+    margin-left: 5px; }
+  .logged__song button {
     background-color: #211F27;
-    border: none; }
-    .logged__info .logged__song button img {
+    border: none;
+    padding: 0; }
+    .logged__song button img {
       width: 35px; }
 
 /*Artist View*/
