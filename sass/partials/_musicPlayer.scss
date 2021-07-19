@@ -3,6 +3,72 @@
 }
 
 .music__song {
-    border: 1px solid red;
+    margin-top: 50px;
+    color: $first-text-color;
 }
 
+.music__player {
+    align-items: center;
+    background-color: $second-background;
+    border-radius: $third-border-radius;
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+}
+
+.controls {
+
+    align-items: center;
+    display: flex;
+    margin-left: 50px;
+
+    .btn__previous {
+
+        background-color: $second-background;
+        border: none;
+        cursor: pointer;
+
+        img {
+            width: 40px;
+        }  
+    }
+    .btn__play {
+
+        background-color: $second-background;
+        border: none;
+        cursor: pointer;
+
+        img {
+            width: 45px;
+        }  
+
+    }
+    .btn__next {
+
+        background-color: $second-background;
+        border: none;
+        cursor: pointer;
+
+        img {
+            width: 40px;
+        }  
+    }
+}
+
+.actions {
+
+    align-items: center;
+    display: flex;
+
+    button {
+
+        background-color: $second-background;
+        border: none;
+        cursor: pointer;
+        margin-right: 50px;
+
+        img {
+            width: 35px;
+        }
+    }
+}
