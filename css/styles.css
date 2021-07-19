@@ -179,3 +179,10 @@ body {
 
 .users__playlist li button:hover {
   background-color: #1B1B1B; }
+
+#showArtist p {
+  color: white; }
+
+#showArtist img {
+  height: 100px;
+  width: 100px; }
