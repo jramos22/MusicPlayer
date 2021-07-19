@@ -1,7 +1,7 @@
 .profile__wrapper {
   border: 1px solid blue;
   display: flex;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .profile__bio {
@@ -11,7 +11,6 @@
 }
 
 .profile__info {
-  //border: 1px solid red;
   margin: 0 auto;
   width: 90%;
 
@@ -20,11 +19,31 @@
     font-size: 18px;
   }
   .profile__name {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    margin-top: 15px;
+    
+    form {
+      
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
 
+      label {
+        color: $eighth-color;
+        font-size: 18px;
+        padding: 10px 10px;
+      }
+      input {
+        display: none;
+      }
+      button {
+        background-color: $second-color;
+        border: none;
+        cursor: pointer;
+        margin-right: 10px;
+        padding: 0;
+      }
+    }
     img {
       height: 30px;
       width: 30px;
@@ -33,26 +52,135 @@
   .profile__recents {
 
     align-items: center;
+    background-color: $nineth-color;
+    border-radius: $third-border-radius;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    margin-left: 10px;
+    margin: 20px 0;
+    padding: 0 10px 10px 10px;
+
+    .recent__title {
+      align-items: center;
+      border-radius: 15px;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      width: 100%;
+
+      p{
+        margin: 10px;
+      }
+    }
+
+    .song__recent {
+      align-items: center; 
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      
+      p{
+        margin-left: -150px;
+      }
+    }
     img {
       height: 30px;
+      margin-left: 5px;
       width: 30px;
     }
+    button {
+      background-color: $nineth-color;
+      border: none;
+      cursor: pointer;
+      margin: 0;
+      padding: 0;
+    }   
   }
   .profile__favorites {
     align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: 10px;
 
     img {
-      width: 30px;
       height: 30px;
+      width: 30px;
     }
+  }
+}
+
+/* Accordion styles */
+.tabs {
+  border-radius: $third-border-radius;
+  border: none;
+  overflow: hidden;
+}
+.tab {
+  color: white;
+  overflow: hidden;
+  width: 100%;
+  
+  &__label {
+    align-items: center;
+    background: $second-color;
+    cursor: pointer;
+    display: flex;
+    font-size: 18px;
+    height: 40px;
+    justify-content: space-between;
+    padding: 10px 10px;
+
+    /* Icon */
+    &:hover {
+      background: $nineth-color;
+      border-radius: 15px 15px 0 0;
+    }
+    &::after {
+      content: "\276F";
+      height: 18px;
+      margin-right: 7px;
+      text-align: center;
+      transition: all .35s;
+      width: 18px;
+    }
+  }
+  &__content {
+    background: $nineth-color;
+    color: white;
+    max-height: 0;
+    padding: 0 1em;
+    transition: all .35s;
+  }
+  &-close {
+    background: white;
+    cursor: pointer;
+    display: flex;
+    font-size: 0.75em;
+    justify-content: flex-end;
+    padding: 16px;
+    &:hover {
+      background: $second-background;
+    }
+  }
+  input {
+    display: none;
+  }
+}
+
+// :checked
+
+input:checked {
+  display: none;
+  + .tab__label {
+    background: $nineth-color;
+    &::after {
+      transform: rotate(90deg);
+    }
+  }
+  ~ .tab__content {
+    max-height: 100vh;
+    padding: 1em;
   }
 }
 
@@ -67,17 +195,18 @@
   li button {
     background-color: $second-background;
     border-radius: $second-border-radius;
-    border: 1px solid $fifth-color;
+    border: none;
     color: $first-text-color;
     font-size: 18px;
     height: 50px;
-    padding: 10px 10px;
     margin-bottom: 10px;
+    padding: 10px 10px;
     text-align: start;
     width: 100%;
   }
   li button:hover {
     background-color: $nineth-color;
+    border: 1px solid $fifth-color;
   }
 }
 

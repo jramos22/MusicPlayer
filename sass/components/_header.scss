@@ -17,22 +17,26 @@
   }
 }
 
-.header__menu {
-
-  ul {
-    display: flex;
-    list-style: none;
-    //text-decoration: none;
-
-  }
+.nav__menu {
+  display: flex;
+  list-style: none;
   li {
-    margin-left: 30px;
-    //text-decoration: none;
     color: white;
+    margin-left: 30px;
 
     a:link {
       color: white;
       text-decoration: none;
     }
+    a:visited {
+      color: $eighth-color;
+    }
+    a:hover {
+      color: $third-text-color;
+    }
   }
+}
+
+.header__menu ul li a:active {
+  color: #FF6F1E;
 }
