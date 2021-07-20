@@ -174,13 +174,12 @@ body {
   .btn__create:hover {
     background-color: #C24904; }
 
-.artist__title {
-  margin: 80px 0 40px 0;
-  color: #ffff; }
-
 .logged__user {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  margin-top: 150px; }
+  .logged__user h1 {
+    margin-top: -30px; }
 
 .artist__view {
   display: flex;

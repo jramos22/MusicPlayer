@@ -6,7 +6,7 @@ function apiArtist() {
         .then((response) => response.json())
         .then((data) => {
             console.log(data[2].name);
-            if (filename() === 'loggin.html') {
+            if (filename() === 'loggin.html' || 'index.html') {
                 const artistResponse = new infoArtist(data);
                 artistResponse.showArtist();
 
