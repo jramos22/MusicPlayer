@@ -1,33 +1,64 @@
 .loggin__wrapper {
-    border: 1px solid tomato;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between;   
+    margin-top: 30px;
 }
 
 .loggin__artist{
-    border: 1px solid red;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 650px;
+}
+
+.show__artist {
+
+    h1 {
+        color: $first-text-color;
+        margin: 0px 0px 40px;
+    }
 
     ul {
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #showArtist {
+
+        img {
+            border-radius: $third-border-radius;
+            height: 150px;
+            width: 150px;
+        }
+        
     }
 }
 
 .form__wrapper {
-    width: 400px;
     background-color: $second-background;
+    border-radius: $third-border-radius;
+    width: 400px;
 
-    h2 {
-        margin-bottom: 10px;
+    .sign__title {
         color: $first-text-color;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+    .create__title {
+        color: $first-text-color;
+        margin-bottom: 10px;
+        margin-top: 0;
     }
 }
 
 .sign__wrapper {
-    width: 300px;
     margin: 0 auto;
-    //border: 1px solid white;
+    width: 300px;
 }
 
 .sign__container {
@@ -35,30 +66,61 @@
     flex-direction: column;
 
     label {
-        margin-bottom: 10px;
         color: $first-text-color;
+        margin-bottom: 10px;
     }
     input {
-        border: 1px solid $fifth-color;
-        border-radius: $first-border-radius;
-        height: 30px;
         background-color: $second-background;
+        border-radius: $first-border-radius;
+        border: 1px solid $fifth-color;
+        color: $first-text-color;
+        height: 30px;
+        margin-bottom: 15px;
     }
 }
 
 .btn__sign{
+
     background-color: $third-color;
+    border-radius: $first-border-radius;
     border: none;
-    width: 100%;
-    font-weight: bold;
     color: $first-text-color;
+    font-weight: bold;
     height: 35px;
-    border-radius: $second-border-radius;
+    letter-spacing: normal;
+    width: 100%;
+
+    &:hover {
+        background-color: #3703A4;
+    }
+}
+
+.form__division {
+
+    align-items: center;
+    color: $second-text-color;
+    display: flex;
+    flex-direction: row;
+    font-size: 16px;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 300px;
+
+    .line__division {
+
+        width: 120px;
+
+        hr {
+            background-color: $second-text-color;
+            border: none;
+            height: 1px;
+        }   
+    }
 }
 
 .create__wrapper {
-    width: 300px;
     margin: 0 auto;
+    width: 300px;
 }
 
 .create__container {
@@ -70,19 +132,28 @@
         margin-bottom: 10px;
     }
     input {
-        border: 1px solid $fifth-color;
-        border-radius: $first-border-radius;
-        height: 30px;
         background-color: $second-background;
+        border-radius: $first-border-radius;
+        border: 1px solid $fifth-color;
+        color: $first-text-color;
+        height: 30px;
+        margin-bottom: 15px;
     }
 }
 
 .btn__create{
+
     background-color: $fourth-color;
-    border: none;
-    width: 100%;
-    font-weight: bold;
-    color: $first-text-color;
-    height: 35px;
     border-radius: $first-border-radius;
+    border: none;
+    color: $first-text-color;
+    font-weight: bold;
+    height: 35px;
+    letter-spacing: normal;
+    margin-bottom: 30px;
+    width: 100%;
+
+    &:hover {
+        background-color: $second-hover-btn;
+    }
 }

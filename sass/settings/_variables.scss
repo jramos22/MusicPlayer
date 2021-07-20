@@ -8,6 +8,8 @@ $sixth-color: #008926;
 $seventh-color: #81DEA0;
 $eighth-color: #ffff;
 $nineth-color: #1B1B1B;
+$tenth-color: #3703A4;
+$eleventh-color: #C24904;
 
 /* Background Color */
 $first-background: $first-color;
@@ -21,4 +23,8 @@ $third-text-color: $fourth-color;
 /* Border Radius */
 $first-border-radius: 5px;
 $second-border-radius: 10px;
-$third-border-radius: 15px
+$third-border-radius: 15px;
+
+/* Buttons Hovers */
+$first-hover-btn: $tenth-color;
+$second-hover-btn: $eleventh-color;

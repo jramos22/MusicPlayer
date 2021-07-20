@@ -2,6 +2,7 @@
 /* Background Color */
 /* Text Colors */
 /* Border Radius */
+/* Buttons Hovers */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 * {
   font-family: 'Inter', sans-serif; }
@@ -56,52 +57,95 @@ body {
   color: #FF6F1E; }
 
 .loggin__wrapper {
-  border: 1px solid tomato;
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  margin-top: 30px; }
 
 .loggin__artist {
-  border: 1px solid red; }
-  .loggin__artist ul {
-    display: flex;
-    flex-direction: row;
-    list-style: none; }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 650px; }
+
+.show__artist h1 {
+  color: #ffff;
+  margin: 0px 0px 40px; }
+
+.show__artist ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+.show__artist #showArtist img {
+  border-radius: 15px;
+  height: 150px;
+  width: 150px; }
 
 .form__wrapper {
-  width: 400px;
-  background-color: #211F27; }
-  .form__wrapper h2 {
+  background-color: #211F27;
+  border-radius: 15px;
+  width: 400px; }
+  .form__wrapper .sign__title {
+    color: #ffff;
     margin-bottom: 10px;
-    color: #ffff; }
+    margin-top: 20px; }
+  .form__wrapper .create__title {
+    color: #ffff;
+    margin-bottom: 10px;
+    margin-top: 0; }
 
 .sign__wrapper {
-  width: 300px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  width: 300px; }
 
 .sign__container {
   display: flex;
   flex-direction: column; }
   .sign__container label {
-    margin-bottom: 10px;
-    color: #ffff; }
+    color: #ffff;
+    margin-bottom: 10px; }
   .sign__container input {
-    border: 1px solid #79797B;
+    background-color: #211F27;
     border-radius: 5px;
+    border: 1px solid #79797B;
+    color: #ffff;
     height: 30px;
-    background-color: #211F27; }
+    margin-bottom: 15px; }
 
 .btn__sign {
   background-color: #6320EE;
+  border-radius: 5px;
   border: none;
-  width: 100%;
-  font-weight: bold;
   color: #ffff;
+  font-weight: bold;
   height: 35px;
-  border-radius: 10px; }
+  letter-spacing: normal;
+  width: 100%; }
+  .btn__sign:hover {
+    background-color: #3703A4; }
+
+.form__division {
+  align-items: center;
+  color: #79797B;
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 300px; }
+  .form__division .line__division {
+    width: 120px; }
+    .form__division .line__division hr {
+      background-color: #79797B;
+      border: none;
+      height: 1px; }
 
 .create__wrapper {
-  width: 300px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  width: 300px; }
 
 .create__container {
   display: flex;
@@ -110,19 +154,25 @@ body {
     color: #ffff;
     margin-bottom: 10px; }
   .create__container input {
-    border: 1px solid #79797B;
+    background-color: #211F27;
     border-radius: 5px;
+    border: 1px solid #79797B;
+    color: #ffff;
     height: 30px;
-    background-color: #211F27; }
+    margin-bottom: 15px; }
 
 .btn__create {
   background-color: #FF6F1E;
+  border-radius: 5px;
   border: none;
-  width: 100%;
-  font-weight: bold;
   color: #ffff;
+  font-weight: bold;
   height: 35px;
-  border-radius: 5px; }
+  letter-spacing: normal;
+  margin-bottom: 30px;
+  width: 100%; }
+  .btn__create:hover {
+    background-color: #C24904; }
 
 .artist__title {
   margin: 80px 0 40px 0;
