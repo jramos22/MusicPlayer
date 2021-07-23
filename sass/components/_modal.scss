@@ -1,0 +1,105 @@
+.modal-container {
+
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.3);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;  
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    transition: opacity 0.3s ease;
+}
+  
+.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.modal__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    h3 {
+        color: $first-text-color;
+    }
+
+    button {
+        background-color: $second-background;
+        border: none;
+
+        img {
+            width: 30px;
+        }
+    }
+}
+  
+.modal {
+    background-color: $second-background;
+    width: 350px;
+    max-width: 100%;
+    border-radius: $third-border-radius;
+    border: 1px solid $fourth-color;
+    padding: 30px 50px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        text-align: start;
+
+        label {
+            color: $first-text-color;
+            margin-bottom: 10px;
+        }
+        input {
+            color: $first-text-color;
+            background-color: $second-background;
+            border: 1px solid $fifth-color;
+            border-radius: $first-border-radius;
+            height: 30px;
+            margin-bottom: 15px;
+        }
+        select {
+            color: $first-text-color;
+            background-color: $second-background;
+            border: 1px solid $fifth-color;
+            border-radius: $first-border-radius;
+            height: 30px;
+            margin-bottom: 15px;
+        }
+    }
+
+    .modal__save {
+        
+        display: flex;
+        justify-content: end;
+
+        button {
+            //float: right;
+            width: 70px;
+            color: $third-text-color;
+            background-color: $second-background;
+            border: none;
+            font-size: 16px;
+        }
+    }
+
+   
+}
+  
+.modal h1 {
+    margin: 0;
+}
+  
+.modal p {
+    opacity: 0.7;
+    font-size: 14px;
+}

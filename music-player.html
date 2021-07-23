@@ -41,9 +41,45 @@
                     <progress id="file" value="50" max="100"></progress>
                 </div>
                 <div class="actions">
-                    <button><img src="img/add-icon-35px.png" alt=""></button>
-                    <button><img src="img/favorites-icon-x35.png" alt=""></button>
+                    <button class="add__song" id="add__song"><img src="img/add-icon-35px.png" alt=""></button>
+                    <button>
+                        <svg width="30" height="30" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="add__favorite" d="M2.91675 12.25C2.91657 11.2035 3.12499 10.1674 3.52984 9.20231C3.93468 8.23724 4.52782 7.36254 5.2746 6.62934C6.02138 5.89614 6.90681 5.31915 7.87915 4.93208C8.85148 4.54501 9.89122 4.35563 10.9376 4.37501C12.1757 4.36843 13.401 4.62507 14.5324 5.1279C15.6637 5.63074 16.6753 6.36829 17.5001 7.29167C18.3248 6.36829 19.3364 5.63074 20.4678 5.1279C21.5992 4.62507 22.8245 4.36843 24.0626 4.37501C25.109 4.35563 26.1487 4.54501 27.121 4.93208C28.0934 5.31915 28.9788 5.89614 29.7256 6.62934C30.4723 7.36254 31.0655 8.23724 31.4703 9.20231C31.8752 10.1674 32.0836 11.2035 32.0834 12.25C32.0834 20.0608 22.7807 25.9583 17.5001 30.625C12.2311 25.919 2.91675 20.0667 2.91675 12.25Z" fill="none" stroke="white" stroke-width="3" />
+                        </svg>                         
+                    </button>
+                    <!-- <div class="increase-button">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path class="increase__btn--plus" d="M15 27.5C21.9036 27.5 27.5 21.9036 27.5 15C27.5 8.09644 21.9036 2.5 15 2.5C8.09644 2.5 2.5 8.09644 2.5 15C2.5 21.9036 8.09644 27.5 15 27.5Z" fill="#688D01" stroke="#688D01" stroke-width="2"/>
+                          <path class="increase__btn--cross" d="M16 10C16 9.44772 15.5523 9 15 9C14.4477 9 14 9.44772 14 10H16ZM14 20C14 20.5523 14.4477 21 15 21C15.5523 21 16 20.5523 16 20H14ZM20 16C20.5523 16 21 15.5523 21 15C21 14.4477 20.5523 14 20 14V16ZM10 14C9.44772 14 9 14.4477 9 15C9 15.5523 9.44772 16 10 16V14ZM14 10V15H16V10H14ZM14 15V20H16V15H14ZM15 16H20V14H15V16ZM15 14H10V16H15V14Z" fill="white"/>
+                        </svg>
+                    </div> -->
                 </div>
+            </div>
+        </div>
+
+        <div id="modal_container" class="modal-container">
+            
+            <div class="modal">
+                <div class="modal__title">
+                    <h3>Add to a list</h3>
+                    <button id="close"><img src="img/icon-close-30px.png" alt=""></button>
+                </div>
+             
+              <form action="">
+                <label for="add__list">New list</label>
+                <input type="text" name="add__list" id="add-list">
+
+                <label for="exist__list">Existing list</label>
+                <select name="exist__list" id="exist-list">
+                    <option value="">Select Playlist</option>
+                    <option value="">Playlist 1</option>
+                </select>
+                <div class="modal__save">
+                    <button type="submit">Save -></button>
+                </div>
+                
+              </form>
+              
             </div>
         </div>
        
@@ -51,5 +87,6 @@
             <p class="copyright-text">Copyright © José Daniel & Kendoll Castro</p>
         </div>
     </div>
+    <script src="js/modal.js"></script>
 </body>
 </html>

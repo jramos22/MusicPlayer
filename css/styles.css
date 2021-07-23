@@ -26,6 +26,16 @@ body {
   font-size: 12px;
   color: #79797B; }
 
+/* //Button Increase
+
+.increase__btn--plus:hover {
+  fill: #E13600;
+}
+ 
+.increase__btn--plus:hover ~ .increase__btn--cross {
+  fill: #688D01;
+}
+  */
 .header__wrapper {
   display: flex;
   justify-content: space-between;
@@ -55,6 +65,85 @@ body {
 
 .header__menu ul li a:active {
   color: #FF6F1E; }
+
+.modal-container {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.3);
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  transition: opacity 0.3s ease; }
+
+.show {
+  pointer-events: auto;
+  opacity: 1; }
+
+.modal__title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  .modal__title h3 {
+    color: #ffff; }
+  .modal__title button {
+    background-color: #211F27;
+    border: none; }
+    .modal__title button img {
+      width: 30px; }
+
+.modal {
+  background-color: #211F27;
+  width: 350px;
+  max-width: 100%;
+  border-radius: 15px;
+  border: 1px solid #FF6F1E;
+  padding: 30px 50px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center; }
+  .modal form {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    text-align: start; }
+    .modal form label {
+      color: #ffff;
+      margin-bottom: 10px; }
+    .modal form input {
+      color: #ffff;
+      background-color: #211F27;
+      border: 1px solid #79797B;
+      border-radius: 5px;
+      height: 30px;
+      margin-bottom: 15px; }
+    .modal form select {
+      color: #ffff;
+      background-color: #211F27;
+      border: 1px solid #79797B;
+      border-radius: 5px;
+      height: 30px;
+      margin-bottom: 15px; }
+  .modal .modal__save {
+    display: flex;
+    justify-content: end; }
+    .modal .modal__save button {
+      width: 70px;
+      color: #FF6F1E;
+      background-color: #211F27;
+      border: none;
+      font-size: 16px; }
+
+.modal h1 {
+  margin: 0; }
+
+.modal p {
+  opacity: 0.7;
+  font-size: 14px; }
 
 .loggin__wrapper {
   display: flex;
@@ -535,4 +624,6 @@ input:checked {
     cursor: pointer;
     margin-right: 50px; }
     .actions button img {
-      width: 35px; }
+      width: 30px; }
+  .actions .add__favorite:active {
+    fill: #E13600; }
