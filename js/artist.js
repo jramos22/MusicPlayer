@@ -8,7 +8,6 @@ class infoArtist {
     showArtist() {
         const array =['artistRadiohead.html','artistAurora.html','artistGorillas.html']
         for (let i = 0; i < this.data.length; i++) {
-
             const artistview = document.getElementById('showArtist');
             const anchor =document.createElement('a');
             anchor.setAttribute('href', `${array[i]}`);

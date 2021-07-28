@@ -5,24 +5,16 @@ function apiArtist() {
     fetch('https://kt2ul4cwza.execute-api.us-east-2.amazonaws.com/public/artists')
         .then((response) => response.json())
         .then((data) => {
-            console.log(data[2].name);
-            if (filename() === 'loggin.html' || 'index.html') {
-                const artistResponse = new infoArtist(data);
+            const artistResponse = new infoArtist(data);
+            if (filename() === 'loggin.html' || filename() === 'index.html') {
                 artistResponse.showArtist();
-
             } else if (filename() === 'artistGorillas.html') {
-                const show = new infoArtist(data);
-                show.showArtistComplete(2);
-                console.log(filename());
+                artistResponse.showArtistComplete(2);
             } else if (filename() === 'artistRadiohead.html') {
-                const show = new infoArtist(data);
-                show.showArtistComplete(0);
-                console.log(filename());
+                artistResponse.showArtistComplete(0);
+                console.log('hola');
             } else if (filename() === 'artistAurora.html') {
-                const show = new infoArtist(data);
-                show.showArtistComplete(1);
-                console.log(filename());
-                
+                artistResponse.showArtistComplete(1);
             }
         });
 }
