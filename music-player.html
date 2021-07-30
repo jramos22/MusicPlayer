@@ -32,14 +32,39 @@
             </div>
             <div class="music__player">
                 <div class="controls">
-                    <button class="btn__previous"><img src="img/previous-icon-x40.png" alt="previous button"></button>
-                    <button class="btn__play"><img src="img/play-icon-x45.png" alt="play button"></button>
-                    <button class="btn__next"><img src="img/next-icon-x40.png" alt=""></button>
+                    <button id="prev" class="btn__previous"><img src="img/previous-icon-x40.png" alt="previous button"></button>
+                    <div class="play-pause">
+                        <button class="btn__play play"><img src="img/play-icon-x45.png" alt="play button"></button> 
+                    </div>
+                    <button class="btn__next" id="next"><img src="img/next-icon-x40.png" alt=""></button>
                 </div>
-                <div class="audio">
+                <!-- 
+                <div class="controls">
+                    <i id="repeat-plist" class="material-icons" title="Playlist looped">repeat</i>
+                    <i id="prev" class="material-icons prev">fast_rewind</i>
+                    <div class="play-pause">
+                        <i class="material-icons play">play_arrow</i>
+                    </div>
+                    <i id="next" class="material-icons next">fast_forward</i>
+                    <i id="more-music" class="material-icons">queue_music</i>
+                </div> -->
+
+                <div class="progress-area">
+                    <div class="progress-bar">
+                        <audio id="main-audio" src=""></audio>
+                    </div>
+                    <div class="song-timer">
+                        <span class="current-time">0:00</span>
+                        <span class="max-duration">0:00</span>
+                    </div>
+                    <audio id="main-audio" src=""></audio>
+                </div>
+
+                <!-- <div class="audio">
                     <label for="file"></label>
                     <progress id="file" value="50" max="100"></progress>
-                </div>
+                </div> -->
+                
                 <div class="actions">
                     <button class="add__song" id="add__song"><img src="img/add-icon-35px.png" alt=""></button>
                     <button>

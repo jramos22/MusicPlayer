@@ -1,0 +1,73 @@
+
+#player .trackinfo {
+    //@at-root: absolute;
+    //bottom: 135px;
+    color: #FFF;
+}
+
+#player .trackinfo #title {
+    font-weight: bold;
+    font-size: 30px;
+    padding-left: 10px;
+    margin-bottom: 5px;
+}
+#player .trackinfo #artist {
+    padding-left: 25px;
+}
+#track {
+    width: 366px;
+    height: 5px;
+    //position: absolute;
+    background-color: #A6A7A9;
+    bottom: 115px;
+    left: 17px;
+    z-index: 10;
+    cursor: pointer;
+}
+#progress {
+    float: left;
+    height: 5px;
+    width: 0%;
+    background: $tenth-color;
+    cursor: pointer;
+}
+#handler {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: $tenth-color;
+    top: 91%;
+    left: 0%;
+    margin-left: 515px;
+    margin-top: -10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 5;
+}
+.nav {
+    background-color: $second-background;
+    border: none;
+    cursor: pointer;
+}
+.pad {
+    padding-left: 5px;
+}
+#prev {
+    padding-right: 5px;
+}
+#next {
+    padding-left: 4px;
+}
+.music__controles {
+    display: flex;
+    justify-content: space-between;
+    background-color: $second-background;
+    align-items: center;
+}
+.cont {
+    display: flex;
+}
+
+#player{
+    display: none;
+}
