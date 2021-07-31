@@ -577,53 +577,97 @@ input:checked {
   height: 100px;
   width: 100px; }
 
-.music__animation {
-  border: 1px solid white; }
+.song-details {
+  margin-top: 50px; }
+  .song-details .trackinfo .listen__song {
+    font-size: 20px;
+    color: #ffff; }
+  .song-details .trackinfo #name {
+    color: #FF6F1E;
+    font-size: 20px; }
+  .song-details .trackinfo .from__album {
+    color: #ffff; }
+  .song-details .trackinfo #album {
+    color: #6320EE; }
 
-.music__song {
-  margin-top: 50px;
-  color: #ffff; }
+#player .trackinfo #title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  padding-left: 10px; }
 
-.music__player {
+#player .trackinfo #artist {
+  padding-left: 25px; }
+
+#track {
+  width: 366px;
+  height: 5px;
+  background-color: #A6A7A9;
+  bottom: 115px;
+  left: 17px;
+  z-index: 10;
+  border-radius: 5px; }
+
+#progress {
+  float: left;
+  height: 5px;
+  width: 0%;
+  background: #3703A4;
+  border-radius: 5px; }
+
+.info {
+  margin-left: 20px; }
+
+.pad {
+  padding-left: 5px; }
+
+#prev {
+  padding-right: 5px; }
+
+#next {
+  padding-left: 4px; }
+
+.music__controles {
+  border-radius: 10px;
   align-items: center;
   background-color: #211F27;
-  border-radius: 15px;
   display: flex;
-  height: 100px;
-  justify-content: space-between; }
+  justify-content: space-between;
+  margin-top: 50px; }
 
-.controls {
-  align-items: center;
-  display: flex;
-  margin-left: 50px; }
-  .controls .btn__previous {
+.cont {
+  display: flex; }
+  .cont .nav {
     background-color: #211F27;
     border: none;
     cursor: pointer; }
-    .controls .btn__previous img {
-      width: 40px; }
-  .controls .btn__play {
-    background-color: #211F27;
-    border: none;
-    cursor: pointer; }
-    .controls .btn__play img {
-      width: 45px; }
-  .controls .btn__next {
-    background-color: #211F27;
-    border: none;
-    cursor: pointer; }
-    .controls .btn__next img {
-      width: 40px; }
+
+#player {
+  display: none; }
 
 .actions {
-  align-items: center;
-  display: flex; }
+  display: flex;
+  justify-content: space-between;
+  margin-right: 40px;
+  width: 100px; }
   .actions button {
     background-color: #211F27;
-    border: none;
-    cursor: pointer;
-    margin-right: 50px; }
+    border: none; }
     .actions button img {
       width: 30px; }
-  .actions .add__favorite:active {
-    fill: #E13600; }
+
+/* *********** CANVAS ANIMATION ********* */
+canvas {
+  background-color: #080808;
+  border-radius: 10px;
+  display: block;
+  max-width: 100%;
+  border: 1px solid #6320EE; }
+
+.call-to-action {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FFF;
+  cursor: pointer; }
