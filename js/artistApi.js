@@ -13,7 +13,7 @@ function apiArtists() {
             }
         });
 }
-function apiArtist1(position, id) {
+function apiArtist(position, id) {
     fetch('https://kt2ul4cwza.execute-api.us-east-2.amazonaws.com/public/artists')
         .then((response) => response.json())
         .then((data) => {

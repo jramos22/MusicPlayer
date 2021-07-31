@@ -1,10 +1,10 @@
-import {apiArtists, apiArtist1} from './artistApi.js';
+import {apiArtists, apiArtist} from './artistApi.js';
 const idArtist = localStorage.getItem("idArtist");
 const nameArtist = localStorage.getItem("nameArtist");
 console.log(idArtist);
 apiArtists();
 
-apiArtist1(idArtist,nameArtist);
+apiArtist(idArtist,nameArtist);
 class infoArtist {
     constructor(data) {
         this.data = data;
