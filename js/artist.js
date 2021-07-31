@@ -1,16 +1,19 @@
-import {apiArtist} from './artistApi.js';
+import {apiArtists, apiArtist1} from './artistApi.js';
+const idArtist = localStorage.getItem("idArtist");
+const nameArtist = localStorage.getItem("nameArtist");
+console.log(idArtist);
+apiArtists();
 
-apiArtist();
+apiArtist1(idArtist,nameArtist);
 class infoArtist {
     constructor(data) {
         this.data = data;
     }
     showArtist() {
-        const array =['artistRadiohead.html','artistAurora.html','artistGorillas.html']
         for (let i = 0; i < this.data.length; i++) {
             const artistview = document.getElementById('showArtist');
             const anchor =document.createElement('a');
-            anchor.setAttribute('href', `${array[i]}`);
+            anchor.setAttribute('href', 'artistRadiohead.html');
             artistview.appendChild(anchor);
 
             const li = document.createElement('li');
@@ -26,9 +29,20 @@ class infoArtist {
             artistName.setAttribute('class', 'name-artist');
             artistName.innerHTML = `${this.data[i].name}`;
             li.appendChild(artistName);
+            anchor.addEventListener('click',(e)=>{
+                e.preventDefault();
+                localStorage.removeItem('idArtist');
+                localStorage.removeItem('nameArtist');
+                localStorage.setItem('idArtist', i);
+                localStorage.setItem('nameArtist',`${this.data[i].id}`);
+                window.location.href = 'artist.html';
+            });
+            
         }
     }
     showArtistComplete(num){
+        const nameArtist = document.getElementById('name_artist');
+        nameArtist.innerHTML = `${this.data[num].name}`;
         const bio = document.getElementById('bio');
         const imgbio = document.createElement('img');
         imgbio.setAttribute('src', `${this.data[num].image}`);

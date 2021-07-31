@@ -1,6 +1,9 @@
-import{createUser, getUsers} from './createUser.js'
-
+import { checkForm, logged } from './createUser.js'
+const id = localStorage.removeItem('idUser');
+console.log(id);
 const loggin = document.getElementById('loggin');
+const emailLoggin = document.querySelectorAll('input')[0];
+const passwordLoggin = document.querySelectorAll('input')[1];
 
 const createForm = document.getElementById('create');
 const nameCreate = document.querySelectorAll('input')[2];
@@ -10,26 +13,14 @@ const passwordCheck = document.querySelectorAll('input')[5];
 
 createForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    checkForm();
+    checkForm(email.value, password ,passwordCheck.value, nameCreate.value);
 });
 
-function checkForm(){
-    if (email.value === 'hola') {
-        error(email, 'Email is already registered');
-    } else if(password.value != passwordCheck.value){
-        alert('the password does not match');
-    }else{
-        const info = {
-            "name": `${nameCreate.value}`,
-            "email": `${email.value}`,
-            "password": `${password.value}`,
-        }
-        createUser(info);
-        //getUsers();
+loggin.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const passwordConfirm = {
+        password: passwordLoggin.value
     }
-}
-
-function error(input, message) {
-    const inputSelect = input;
-    inputSelect.value = message;
-};
+    logged(emailLoggin.value, passwordConfirm);
+    
+});

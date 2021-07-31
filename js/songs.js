@@ -1,22 +1,3 @@
-import { songsApi } from './songsApi.js';
-import { filename } from './locationFile.js';
-
-
-if (filename() === 'artistGorillas.html'){
-    const show = new songsApi;
-    show.gorillaz();
-    console.log(filename());
-} else if (filename() === 'artistRadiohead.html'){
-    const show = new songsApi;
-    show.radiohead();
-    console.log(filename());
-} else {
-    const show = new songsApi;
-    show.aurora();
-    console.log(filename());
-}
-
-
 class infoSongs {
     constructor(data) {
         this.data = data;
