@@ -28,5 +28,5 @@ function apiArtist(position, id) {
 
 export {
     apiArtists,
-    apiArtist1
+    apiArtist
 }
