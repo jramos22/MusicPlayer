@@ -30,6 +30,7 @@ function logged(email, password) {
             return response.json();
         })
         .then((data) => {
+            console.log(data);
             if (data.logginUser.status == true) {
                 localStorage.setItem("idUser", data.logginUser.id);
                 window.location.href = "index.html";
@@ -48,7 +49,8 @@ function checkForm(email, password, passwordCheck, name) {
             return response.json();
         })
         .then((data) => {
-            for (let i = 0; i < data.data.length; i++) {
+            console.log(data);
+            for (let i = 0; i <= data.data.length; i++) {
                 if (email === data.data[i].email) {
                     alert('the Email is already in use');
                     break

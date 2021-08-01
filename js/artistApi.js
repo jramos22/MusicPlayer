@@ -3,6 +3,7 @@ import { filename } from './locationFile.js';
 import { songsApi } from './songsApi.js';
 const idUser = localStorage.getItem("idUser");
 console.log(idUser);
+
 function apiArtists() {
     fetch('https://kt2ul4cwza.execute-api.us-east-2.amazonaws.com/public/artists')
         .then((response) => response.json())

@@ -13,7 +13,11 @@ const passwordCheck = document.querySelectorAll('input')[5];
 
 createForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    checkForm(email.value, password ,passwordCheck.value, nameCreate.value);
+    checkForm(email.value, password.value ,passwordCheck.value, nameCreate.value);
+    email.value ='';
+    password.value = '';
+    passwordCheck.value = '';
+    nameCreate.value = '';
 });
 
 loggin.addEventListener('submit', (e) => {
