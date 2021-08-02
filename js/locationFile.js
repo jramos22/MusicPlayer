@@ -1,8 +1,8 @@
 function filename(){
-    const rutaAbsoluta = self.location.href;   
-    const posicionUltimaBarra = rutaAbsoluta.lastIndexOf("/");
-    const rutaRelativa = rutaAbsoluta.substring( posicionUltimaBarra + "/".length , rutaAbsoluta.length );
-    return rutaRelativa;  
+    const absoluteRout = self.location.href;   
+    const lastbarposition = absoluteRout.lastIndexOf("/");
+    const relativeRout = absoluteRout.substring( lastbarposition + "/".length , absoluteRout.length );
+    return relativeRout;  
 }
 
 export{

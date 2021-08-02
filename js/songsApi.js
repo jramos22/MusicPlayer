@@ -1,4 +1,4 @@
-import {infoSongs} from './songs.js';
+import {infoSongs} from './songsDom.js';
 class songsApi{
 
     songs(id){

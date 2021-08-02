@@ -1,4 +1,4 @@
-import { infoArtist } from './artist.js';
+import { infoArtist } from './artistDom.js';
 import { filename } from './locationFile.js';
 import { songsApi } from './songsApi.js';
 const idUser = localStorage.getItem("idUser");
@@ -14,6 +14,7 @@ function apiArtists() {
             }
         });
 }
+
 function apiArtist(position, id) {
     fetch('https://kt2ul4cwza.execute-api.us-east-2.amazonaws.com/public/artists')
         .then((response) => response.json())
