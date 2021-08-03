@@ -1,54 +1,129 @@
 .profile__wrapper {
-  border: 1px solid blue;
+  //border: 1px solid blue;
   display: flex;
   margin-top: 50px;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .profile__bio {
   background-color: $second-background;
   border-radius: $third-border-radius;
   width: 500px;
+  padding: 30px;
+}
+
+.profile__name {
+  margin-bottom: 15px;
+  
+  #nameUser {
+    
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+
+    label {
+      color: $eighth-color;
+      font-size: 18px;
+      padding: 10px 10px;
+      width: 300px;
+    }
+    input {
+      display: none;
+      width: 300px;
+    }
+    .btn__edit-name {
+      background-color: $second-color;
+      border: none;
+      cursor: pointer;
+      margin-right: 10px;
+      padding: 0;
+    }
+  }
+
+  img {
+    height: 30px;
+    width: 30px;
+  }
+
+  #playlist {
+
+    align-items: center;
+    display: flex;
+    //justify-content: space-between;
+    width: 100%;
+
+    label {
+      color: $eighth-color;
+      font-size: 18px;
+      padding: 10px 10px;
+      width: 250px;
+    }
+    input {
+      display: none;
+    }
+    .btn__edit-name {
+      background-color: $second-color;
+      border: none;
+      cursor: pointer;
+      margin-left: 20px;
+      padding: 0;
+    }
+  }
 }
 
 .profile__info {
   margin: 0 auto;
-  width: 90%;
+  //width: 90%;
 
   p {
     color: $first-text-color;
     font-size: 18px;
   }
-  .profile__name {
-    margin-top: 15px;
-    
-    form {
-      
-      align-items: center;
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
+  
 
-      label {
-        color: $eighth-color;
-        font-size: 18px;
-        padding: 10px 10px;
-      }
-      input {
-        display: none;
-      }
-      button {
-        background-color: $second-color;
-        border: none;
-        cursor: pointer;
-        margin-right: 10px;
-        padding: 0;
-      }
-    }
-    img {
-      height: 30px;
-      width: 30px;
+  .button__save--playlist {
+    background-color: $first-background;
+    color: $sixth-color;
+    border: 1px solid $sixth-color;
+    width: 75px;
+    height: 35px;
+    font-size: 18px;
+    margin-left: 155px;
+    opacity: 0;
+    border-radius: $first-border-radius;
+    &:hover{
+      background-color: $sixth-color;
+      color: $first-text-color;
     }
   }
+
+  .button__delete--plst {
+    background-color: $first-background;
+    color: $twelfth-color;
+    border: 1px solid $twelfth-color;
+    //width: 120;
+    height: 35px;
+    font-size: 18px;
+    margin-left: 15px;
+    opacity: 0;
+    border-radius: $first-border-radius;
+    &:hover{
+      background-color: $twelfth-color;
+      color: $first-text-color;
+    }
+  }
+
+  .edit__buttons{
+    background-color: red;
+  }
+
+  .show__buttons{
+    opacity: 1;
+  }
+
   .profile__recents {
 
     align-items: center;
@@ -238,4 +313,6 @@ input:checked {
   }
 }
 
-
+.btn__delete--song {
+  opacity: 0;
+}

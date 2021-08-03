@@ -77,15 +77,20 @@ class userinfo {
         li.appendChild(buttonvalue);
         playlists.appendChild(li);
 
+        
+
         buttonvalue.addEventListener('click', (e) => {
             e.preventDefault();
             const remove = document.getElementById('lists__songs');
             remove.innerHTML = '';
+            const namePlaylist = document.getElementById('playlist');
+            namePlaylist.innerHTML = '';
             getPlaylist(data);
         });
     }
 
     playlist(data){
+
         const playlist = document.getElementById('playlist');
         const labelName = document.createElement('label');
         labelName.setAttribute('for','user__name');
@@ -97,19 +102,43 @@ class userinfo {
         inputName.setAttribute('id','user__name');
         inputName.setAttribute('name','user__name');
         playlist.appendChild(inputName);
+        
+        const saveButton = document.createElement('button');
+        saveButton.setAttribute('type', 'submit');
+        saveButton.innerHTML = 'Save';
+        saveButton.setAttribute('class', 'button__save--playlist');
+        playlist.appendChild(saveButton);
+
+        const deleButton = document.createElement('button');
+        deleButton.setAttribute('type', 'submit');
+        deleButton.innerHTML = 'Delete playlist';
+        deleButton.setAttribute('class', 'button__delete--plst');
+        playlist.appendChild(deleButton);
+
+        /* const deleteButton = document.createElement('button');
+        deleteButton.setAttribute('type', 'submit');
+        deleteButton.innerHTML = 'Remove Playlist';
+        deleteButton.setAttribute('class', 'button__delete--playlist');
+        deleteButton.appendChild(deleteButton); */
 
         const buttonName = document.createElement('button');
         buttonName.setAttribute('type', 'submit');
         buttonName.setAttribute('class', 'btn__edit-name');
+        buttonName.setAttribute('id', 'btn__edit--song');
         const imgButton = document.createElement('img');
         imgButton.setAttribute('src', 'img/edit-icon-x30.png');
         buttonName.appendChild(imgButton);
         playlist.appendChild(buttonName);
+        
 
         buttonName.addEventListener('click',(e)=> {
             e.preventDefault();
             labelName.setAttribute('contentEditable', 'true');
             labelName.focus();
+            
+            
+            //saveButton.classList.remove('show__buttons');
+            
             if (labelName.innerHTML != data.name) {
 
                 /*const updateinfo ={
@@ -120,9 +149,23 @@ class userinfo {
                 //updateName(JSON.stringify(updateinfo), id);
             }
         });
+
+        buttonName.addEventListener('click', (e) => {
+            e.preventDefault();
+            saveButton.classList.add('show__buttons');
+            deleButton.classList.add('show__buttons');
+        })
+
+        saveButton.addEventListener('click', (e) => {
+            saveButton.classList.remove('show__buttons');
+            deleButton.classList.remove('show__buttons');
+        })
+
+        
     }
 }
 
 export{
-    userinfo
+    userinfo,
+    //buttonName
 }

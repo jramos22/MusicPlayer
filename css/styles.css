@@ -409,43 +409,93 @@ body {
     color: #ffff; }
 
 .profile__wrapper {
-  border: 1px solid blue;
   display: flex;
-  margin-top: 50px; }
+  margin-top: 50px;
+  flex-direction: row;
+  justify-content: space-between; }
 
 .profile__bio {
   background-color: #211F27;
   border-radius: 15px;
-  width: 500px; }
+  width: 500px;
+  padding: 30px; }
+
+.profile__name {
+  margin-bottom: 15px; }
+  .profile__name #nameUser {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%; }
+    .profile__name #nameUser label {
+      color: #ffff;
+      font-size: 18px;
+      padding: 10px 10px;
+      width: 300px; }
+    .profile__name #nameUser input {
+      display: none;
+      width: 300px; }
+    .profile__name #nameUser .btn__edit-name {
+      background-color: #211F27;
+      border: none;
+      cursor: pointer;
+      margin-right: 10px;
+      padding: 0; }
+  .profile__name img {
+    height: 30px;
+    width: 30px; }
+  .profile__name #playlist {
+    align-items: center;
+    display: flex;
+    width: 100%; }
+    .profile__name #playlist label {
+      color: #ffff;
+      font-size: 18px;
+      padding: 10px 10px;
+      width: 250px; }
+    .profile__name #playlist input {
+      display: none; }
+    .profile__name #playlist .btn__edit-name {
+      background-color: #211F27;
+      border: none;
+      cursor: pointer;
+      margin-left: 20px;
+      padding: 0; }
 
 .profile__info {
-  margin: 0 auto;
-  width: 90%; }
+  margin: 0 auto; }
   .profile__info p {
     color: #ffff;
     font-size: 18px; }
-  .profile__info .profile__name {
-    margin-top: 15px; }
-    .profile__info .profile__name form {
-      align-items: center;
-      display: flex;
-      justify-content: space-between;
-      width: 100%; }
-      .profile__info .profile__name form label {
-        color: #ffff;
-        font-size: 18px;
-        padding: 10px 10px; }
-      .profile__info .profile__name form input {
-        display: none; }
-      .profile__info .profile__name form button {
-        background-color: #211F27;
-        border: none;
-        cursor: pointer;
-        margin-right: 10px;
-        padding: 0; }
-    .profile__info .profile__name img {
-      height: 30px;
-      width: 30px; }
+  .profile__info .button__save--playlist {
+    background-color: #080808;
+    color: #008926;
+    border: 1px solid #008926;
+    width: 75px;
+    height: 35px;
+    font-size: 18px;
+    margin-left: 155px;
+    opacity: 0;
+    border-radius: 5px; }
+    .profile__info .button__save--playlist:hover {
+      background-color: #008926;
+      color: #ffff; }
+  .profile__info .button__delete--plst {
+    background-color: #080808;
+    color: #E13600;
+    border: 1px solid #E13600;
+    height: 35px;
+    font-size: 18px;
+    margin-left: 15px;
+    opacity: 0;
+    border-radius: 5px; }
+    .profile__info .button__delete--plst:hover {
+      background-color: #E13600;
+      color: #ffff; }
+  .profile__info .edit__buttons {
+    background-color: red; }
+  .profile__info .show__buttons {
+    opacity: 1; }
   .profile__info .profile__recents {
     align-items: center;
     background-color: #1B1B1B;
@@ -593,6 +643,9 @@ input:checked {
 .users__playlist li button:hover {
   background-color: #1B1B1B;
   border: 1px solid #79797B; }
+
+.btn__delete--song {
+  opacity: 0; }
 
 #showArtist p {
   color: white; }
