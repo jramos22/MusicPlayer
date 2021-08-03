@@ -467,20 +467,25 @@ body {
     .profile__info .profile__recents .song__recent {
       align-items: center;
       display: flex;
+      float: left;
       flex-direction: row;
       justify-content: space-between;
       width: 100%; }
       .profile__info .profile__recents .song__recent p {
-        margin-left: -150px; }
+        margin-left: 100px;
+        float: left; }
     .profile__info .profile__recents img {
+      float: left;
       height: 30px;
       margin-left: 5px;
+      margin-top: 15px;
       width: 30px; }
     .profile__info .profile__recents button {
+      float: left;
       background-color: #1B1B1B;
       border: none;
       cursor: pointer;
-      margin: 0;
+      margin-left: 100px;
       padding: 0; }
   .profile__info .profile__favorites {
     align-items: center;
@@ -524,9 +529,28 @@ body {
   .tab__content {
     background: #1B1B1B;
     color: white;
+    float: left;
     max-height: 0;
     padding: 0 1em;
     transition: all .35s; }
+    .tab__content div {
+      float: left; }
+    .tab__content p {
+      margin-left: 100px;
+      float: left; }
+    .tab__content img {
+      float: left;
+      height: 30px;
+      margin-left: 5px;
+      margin-top: 15px;
+      width: 30px; }
+    .tab__content button {
+      float: left;
+      background-color: #1B1B1B;
+      border: none;
+      cursor: pointer;
+      margin-right: 10px;
+      padding: 0; }
   .tab-close {
     background: white;
     cursor: pointer;

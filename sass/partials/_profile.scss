@@ -76,24 +76,29 @@
     .song__recent {
       align-items: center; 
       display: flex;
+      float: left;
       flex-direction: row;
       justify-content: space-between;
       width: 100%;
       
       p{
-        margin-left: -150px;
+        margin-left: 100px;
+        float: left;
       }
     }
     img {
+      float: left;
       height: 30px;
       margin-left: 5px;
+      margin-top: 15px;
       width: 30px;
     }
     button {
+      float: left;
       background-color: $nineth-color;
       border: none;
       cursor: pointer;
-      margin: 0;
+      margin-left: 100px;
       padding: 0;
     }   
   }
@@ -130,7 +135,7 @@
     height: 40px;
     justify-content: space-between;
     padding: 10px 10px;
-
+    
     /* Icon */
     &:hover {
       background: $nineth-color;
@@ -148,9 +153,32 @@
   &__content {
     background: $nineth-color;
     color: white;
+    float: left;
     max-height: 0;
     padding: 0 1em;
     transition: all .35s;
+    div{
+      float: left;
+    }
+    p{
+      margin-left: 100px;
+      float: left;
+    }
+    img {
+      float: left;
+      height: 30px;
+      margin-left: 5px;
+      margin-top: 15px;
+      width: 30px;
+    }
+    button {
+      float: left;
+      background-color: $nineth-color;
+      border: none;
+      cursor: pointer;
+      margin-right: 10px;
+      padding: 0;
+    }
   }
   &-close {
     background: white;
