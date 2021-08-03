@@ -588,7 +588,7 @@ input:checked {
   .song-details .trackinfo .from__album {
     color: #ffff; }
   .song-details .trackinfo #album {
-    color: #6320EE; }
+    color: #008926; }
 
 #player .trackinfo #title {
   font-size: 30px;
@@ -658,11 +658,10 @@ input:checked {
 
 /* *********** CANVAS ANIMATION ********* */
 canvas {
-  background-color: #080808;
+  background-color: #211F27;
   border-radius: 10px;
   display: block;
-  max-width: 100%;
-  border: 1px solid #6320EE; }
+  max-width: 100%; }
 
 .call-to-action {
   position: absolute;
