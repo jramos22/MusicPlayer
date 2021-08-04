@@ -5,10 +5,6 @@ class infoSongs {
         this.data = data;
     }
     artistSongsList() {
-
-        //console.log(filename());
-
-
         const ul = document.getElementById('lists__songs');
         const li = document.createElement('li');
         ul.appendChild(li);
@@ -57,12 +53,8 @@ class infoSongs {
             saveBtnPlst.addEventListener('click', (e) => {
                 e.preventDefault();
                 removeSong.classList.remove('show__buttons');
-
             })
         }
-        
-
-        
     }
 }
 

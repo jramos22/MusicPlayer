@@ -77,8 +77,6 @@ class userinfo {
         li.appendChild(buttonvalue);
         playlists.appendChild(li);
 
-        
-
         buttonvalue.addEventListener('click', (e) => {
             e.preventDefault();
             const remove = document.getElementById('lists__songs');
@@ -116,12 +114,6 @@ class userinfo {
         deleButton.setAttribute('class', 'button__delete--plst');
         playlist.appendChild(deleButton);
 
-        /* const deleteButton = document.createElement('button');
-        deleteButton.setAttribute('type', 'submit');
-        deleteButton.innerHTML = 'Remove Playlist';
-        deleteButton.setAttribute('class', 'button__delete--playlist');
-        deleteButton.appendChild(deleteButton); */
-
         const buttonName = document.createElement('button');
         buttonName.setAttribute('type', 'submit');
         buttonName.setAttribute('class', 'btn__edit-name');
@@ -136,9 +128,6 @@ class userinfo {
             e.preventDefault();
             labelName.setAttribute('contentEditable', 'true');
             labelName.focus();
-            
-            
-            //saveButton.classList.remove('show__buttons');
             
             if (labelName.innerHTML != data.name) {
 
@@ -160,9 +149,7 @@ class userinfo {
         saveButton.addEventListener('click', (e) => {
             saveButton.classList.remove('show__buttons');
             deleButton.classList.remove('show__buttons');
-        })
-
-        
+        })     
     }
 }
 
