@@ -36,6 +36,7 @@ class infoSongs {
         if(filename() === 'profile.html?user__name=#'){
             
             const buttonDeleteSong = document.getElementById('btn__edit--song');
+            const saveBtnPlst = document.getElementById('btn__save--js');
 
             const buttonDelete = document.createElement('button');
             buttonDelete.setAttribute('id', '#');
@@ -44,7 +45,7 @@ class infoSongs {
             const removeSong = document.createElement('img');
             removeSong.setAttribute('src', 'img/delete-icon-x35px.png');
             removeSong.setAttribute('id', 'remove__song');
-            removeSong.setAttribute('class', 'btn__delete--song')
+            removeSong.setAttribute('class', 'btn__delete')
             buttonDelete.appendChild(removeSong);
             
             buttonDeleteSong.addEventListener('click', (e) => {
@@ -52,6 +53,12 @@ class infoSongs {
                 console.log(buttonDeleteSong);
                 removeSong.classList.add('show__buttons');
             });
+
+            saveBtnPlst.addEventListener('click', (e) => {
+                e.preventDefault();
+                removeSong.classList.remove('show__buttons');
+
+            })
         }
         
 

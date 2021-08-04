@@ -492,8 +492,8 @@ body {
     .profile__info .button__delete--plst:hover {
       background-color: #E13600;
       color: #ffff; }
-  .profile__info .edit__buttons {
-    background-color: red; }
+  .profile__info .btn__delete {
+    opacity: 0; }
   .profile__info .show__buttons {
     opacity: 1; }
   .profile__info .profile__recents {
@@ -643,9 +643,6 @@ input:checked {
 .users__playlist li button:hover {
   background-color: #1B1B1B;
   border: 1px solid #79797B; }
-
-.btn__delete--song {
-  opacity: 0; }
 
 #showArtist p {
   color: white; }

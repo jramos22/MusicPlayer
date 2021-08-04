@@ -107,6 +107,7 @@ class userinfo {
         saveButton.setAttribute('type', 'submit');
         saveButton.innerHTML = 'Save';
         saveButton.setAttribute('class', 'button__save--playlist');
+        saveButton.setAttribute('id', 'btn__save--js');
         playlist.appendChild(saveButton);
 
         const deleButton = document.createElement('button');

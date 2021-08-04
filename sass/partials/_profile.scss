@@ -116,8 +116,9 @@
     }
   }
 
-  .edit__buttons{
-    background-color: red;
+  .btn__delete {
+
+    opacity: 0;
   }
 
   .show__buttons{
@@ -313,6 +314,3 @@ input:checked {
   }
 }
 
-.btn__delete--song {
-  opacity: 0;
-}
