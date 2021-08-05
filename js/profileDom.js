@@ -1,11 +1,15 @@
-import {favorite, getPlaylists, getPlaylist ,getRecent, getUser ,updateName} from './profile.js'
+import {favorite, getPlaylists, getPlaylist ,getRecent, getUser ,updateName, deletePlaylist, updatePlaylist, deleteOneSong} from './profile.js'
+import {filename} from './locationFile.js' 
 
 const id = localStorage.getItem('idUser');
 console.log(id);
-getUser(id);
-getRecent(id);
-favorite(id);
-getPlaylists(id);
+if(filename() === 'profile.html') {
+    getUser(id);
+    getRecent(id);
+    favorite(id);
+    getPlaylists(id);
+}
+
 
 class userinfo {
     constructor(data){
@@ -52,6 +56,7 @@ class userinfo {
     recentplay(data, lugar){
         const recent = document.getElementById(`${lugar}`);
         const div = document.createElement('div');
+        div.setAttribute('class', 'recent__display');
         const recentImg = document.createElement('img');
         recentImg.setAttribute('src',`${data.image}`);
         div.appendChild(recentImg);
@@ -73,6 +78,7 @@ class userinfo {
         const playlists = document.getElementById('playlists');
         const li = document.createElement('li');
         const buttonvalue = document.createElement('button');
+        buttonvalue.setAttribute('id', `${data.playlistName}`);
         buttonvalue.innerHTML = `${data.playlistName}`;
         li.appendChild(buttonvalue);
         playlists.appendChild(li);
@@ -108,11 +114,12 @@ class userinfo {
         saveButton.setAttribute('id', 'btn__save--js');
         playlist.appendChild(saveButton);
 
-        const deleButton = document.createElement('button');
-        deleButton.setAttribute('type', 'submit');
-        deleButton.innerHTML = 'Delete playlist';
-        deleButton.setAttribute('class', 'button__delete--plst');
-        playlist.appendChild(deleButton);
+        const deleteButton = document.createElement('button');
+        deleteButton.setAttribute('type', 'submit');
+        deleteButton.innerHTML = 'Delete playlist';
+        deleteButton.setAttribute('class', 'button__delete--plst');
+        deleteButton.setAttribute('id', 'delete--all-playlist')
+        playlist.appendChild(deleteButton);
 
         const buttonName = document.createElement('button');
         buttonName.setAttribute('type', 'submit');
@@ -128,28 +135,56 @@ class userinfo {
             e.preventDefault();
             labelName.setAttribute('contentEditable', 'true');
             labelName.focus();
-            
-            if (labelName.innerHTML != data.name) {
-
-                /*const updateinfo ={
-                    "name": `${labelName.innerHTML}`,
-                    "email": `${data.email}`
-                }*/
-
-                //updateName(JSON.stringify(updateinfo), id);
-            }
-        });
-
-        buttonName.addEventListener('click', (e) => {
-            e.preventDefault();
             saveButton.classList.add('show__buttons');
-            deleButton.classList.add('show__buttons');
-        })
+            deleteButton.classList.add('show__buttons');
+        });
 
         saveButton.addEventListener('click', (e) => {
             saveButton.classList.remove('show__buttons');
-            deleButton.classList.remove('show__buttons');
-        })     
+            deleteButton.classList.remove('show__buttons');
+
+            if (labelName.innerHTML != data.playlistName) {
+
+                for (let t = 0; t <= data.idSongsAdded.length; t++) {
+                    const infoPlaylist = {
+                        "idUser":`${data.idUser}`,
+                        "playlistName": `${data.playlistName}`,
+                        "idSongsAdded":[`${data.idSongsAdded[t]}`]
+                    }
+                    deleteOneSong(data._id, JSON.stringify(infoPlaylist));
+                }
+
+                for (let i = 0; i < data.idSongsAdded.length; i++) {
+                    
+                    const updateinfo = {
+                        "idUser" : `${data.idUser}`,
+                        "playlistName": `${labelName.innerHTML}`,
+                        "idSongsAdded": `${data.idSongsAdded[i]}`
+                    }
+                    updatePlaylist(data._id, JSON.stringify(updateinfo));
+                }
+                
+            }
+            
+        })
+        
+        deleteButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            if(e.target.classList.contains('button__delete--plst')) {
+            
+                const namePlaylist = document.getElementById(`${data.playlistName}`);
+                const idPlaylist = namePlaylist.getAttribute('id');
+
+                if(idPlaylist === data.playlistName) {
+                    const remove = document.getElementById('lists__songs');
+                    remove.innerHTML = '';
+                    const playlistRemove = document.getElementById('playlist');
+                    playlistRemove.innerHTML = '';
+                    namePlaylist.remove();
+                    deletePlaylist(data._id);
+                }
+            }
+        })
     }
 }
 

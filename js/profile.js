@@ -117,9 +117,56 @@ function getPlaylist(data) {
     for (let i = 0; i < data.idSongsAdded.length; i++) {
         //console.log(data.idSongsAdded[i]);
         const showPlaylist = new songsApi();
-        showPlaylist.song(data.idSongsAdded[i]);
+        showPlaylist.song(data.idSongsAdded[i], data);
     }
 }
+
+function deleteOneSong(id, value) {
+    fetch(`https://daken-app.herokuapp.com/playlistsong/${id}`, {
+        headers: {
+            "Content-Type": "application/json"
+        },
+        method: 'DELETE',
+        body: value,
+    })
+        .then((response) => {
+            return response.json();
+        })
+        .then((resPlaylist) => {
+            console.log(resPlaylist)
+        })
+}
+
+function deletePlaylist(id) {
+
+    fetch(`https://daken-app.herokuapp.com/playlist/${id}`, {
+        method: 'DELETE',
+    })
+        .then((response) => {
+            return response.json();
+        })
+        .then((resPlaylist) => {
+            console.log(resPlaylist)
+        })
+}
+
+function updatePlaylist(id, value) {
+    fetch(`https://daken-app.herokuapp.com/playlist/${id}`, {
+        headers: {
+            "Content-Type": "application/json"
+        },
+        method: 'PUT',
+        body: value,
+    })
+        .then((response) => {
+            return response.json();
+        })
+        .then((resPlaylist) => {
+            console.log(resPlaylist)
+        })
+}
+
+
 
 export {
     getUser,
@@ -127,5 +174,8 @@ export {
     getRecent,
     favorite,
     getPlaylists,
-    getPlaylist
+    getPlaylist,
+    deleteOneSong,
+    deletePlaylist,
+    updatePlaylist
 }

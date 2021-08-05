@@ -6,16 +6,16 @@ class songsApi{
         .then((response) => response.json())
         .then((data) => {
             for (let i = 0; i < data.length; i++) {
-                const songsResponse = new infoSongs(data[i]);
+                const songsResponse = new infoSongs(data[i], 1);
                 songsResponse.artistSongsList();
             }
         });
     }
-    song(id){
+    song(id, playlist){
         fetch(`https://kt2ul4cwza.execute-api.us-east-2.amazonaws.com/public/song/${id}`)
         .then((response) => response.json())
         .then((data) => {  
-                const songsResponse = new infoSongs(data);
+                const songsResponse = new infoSongs(data, playlist);
                 songsResponse.artistSongsList();
         });
     }

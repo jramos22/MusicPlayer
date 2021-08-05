@@ -1,15 +1,15 @@
 .profile__wrapper {
   display: flex;
-  margin-top: 50px;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 50px;
 }
 
 .profile__bio {
   background-color: $second-background;
   border-radius: $third-border-radius;
-  width: 500px;
   padding: 30px;
+  width: 500px;
 }
 
 .profile__name {
@@ -81,14 +81,14 @@
 
   .button__save--playlist {
     background-color: $first-background;
-    color: $sixth-color;
+    border-radius: $first-border-radius;
     border: 1px solid $sixth-color;
-    width: 75px;
-    height: 35px;
+    color: $sixth-color;
     font-size: 18px;
+    height: 35px;
     margin-left: 155px;
     opacity: 0;
-    border-radius: $first-border-radius;
+    width: 75px;
     &:hover{
       background-color: $sixth-color;
       color: $first-text-color;
@@ -97,13 +97,13 @@
 
   .button__delete--plst {
     background-color: $first-background;
-    color: $twelfth-color;
+    border-radius: $first-border-radius;
     border: 1px solid $twelfth-color;
-    height: 35px;
+    color: $twelfth-color;
     font-size: 18px;
+    height: 35px;
     margin-left: 15px;
     opacity: 0;
-    border-radius: $first-border-radius;
     &:hover{
       background-color: $twelfth-color;
       color: $first-text-color;
@@ -111,7 +111,7 @@
   }
 
   .btn__delete {
-
+    width: 30px;
     opacity: 0;
   }
 
@@ -137,41 +137,20 @@
       justify-content: space-between;
       padding: 10px;
       width: 100%;
-
       p{
         margin: 10px;
       }
     }
-
     .song__recent {
       align-items: center; 
       display: flex;
-      float: left;
       flex-direction: row;
+      float: left;
       justify-content: space-between;
       width: 100%;
-      
-      p{
-        margin-left: 100px;
-        float: left;
-      }
-    }
-    img {
-      float: left;
-      height: 30px;
-      margin-left: 5px;
-      margin-top: 15px;
-      width: 30px;
-    }
-    button {
-      float: left;
-      background-color: $nineth-color;
-      border: none;
-      cursor: pointer;
-      margin-left: 100px;
-      padding: 0;
     }   
   }
+
   .profile__favorites {
     align-items: center;
     display: flex;
@@ -183,6 +162,25 @@
       width: 30px;
     }
   }
+}
+
+.recent__display {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 90%;
+
+  img {
+    height: 30px;
+    width: 30px;
+  }
+  button {
+    background-color: $nineth-color;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  } 
 }
 
 /* Accordion styles */
@@ -243,10 +241,10 @@
       width: 30px;
     }
     button {
-      float: left;
       background-color: $nineth-color;
       border: none;
       cursor: pointer;
+      float: left;
       margin-right: 10px;
       padding: 0;
     }

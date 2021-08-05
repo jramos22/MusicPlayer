@@ -1,12 +1,18 @@
 import {filename} from './locationFile.js'
+import {deleteOneSong} from './profile.js'
+
 
 class infoSongs {
-    constructor(data) {
+    constructor(data, playlist) {
         this.data = data;
+        this.playlist = playlist;
     }
     artistSongsList() {
         const ul = document.getElementById('lists__songs');
         const li = document.createElement('li');
+        li.setAttribute('class', 'dltOne--song');
+
+        //console.log(li);        
         ul.appendChild(li);
 
         const imgSongs = document.createElement('img');
@@ -22,20 +28,17 @@ class infoSongs {
         li.appendChild(albumName);
 
         const Button = document.createElement('button');
-        Button.setAttribute('id', '#');
         li.appendChild(Button);
 
         const imgButton = document.createElement('img');
         imgButton.setAttribute('src', 'img/play-icon-x35.png');
         Button.appendChild(imgButton);
 
-        if(filename() === 'profile.html?user__name=#'){
-            
+        if(filename() === 'profile.html'){
             const buttonDeleteSong = document.getElementById('btn__edit--song');
             const saveBtnPlst = document.getElementById('btn__save--js');
 
             const buttonDelete = document.createElement('button');
-            buttonDelete.setAttribute('id', '#');
             li.appendChild(buttonDelete);
 
             const removeSong = document.createElement('img');
@@ -46,13 +49,27 @@ class infoSongs {
             
             buttonDeleteSong.addEventListener('click', (e) => {
                 e.preventDefault();
-                console.log(buttonDeleteSong);
                 removeSong.classList.add('show__buttons');
             });
 
             saveBtnPlst.addEventListener('click', (e) => {
                 e.preventDefault();
                 removeSong.classList.remove('show__buttons');
+            })
+
+            removeSong.addEventListener('click', (e) => {
+                e.preventDefault();
+                if(e.target.classList.contains('btn__delete')) {
+                    const infoPlaylist = {
+                        "idUser":`${this.playlist.idUser}`,
+                        "playlistName": `${this.playlist.playlistName}`,
+                        "idSongsAdded":[`${this.data.id}`]
+                    }
+                    console.log(this.data);
+                    const li = e.target.parentElement.parentElement;
+                    li.remove();
+                    deleteOneSong(this.playlist._id, JSON.stringify(infoPlaylist));
+                }
             })
         }
     }
