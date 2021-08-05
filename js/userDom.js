@@ -47,6 +47,21 @@ class infoLogged {
     
             recentButtton.appendChild(imgPlay);
             name.appendChild(recentButtton);
+
+            recentButtton.addEventListener('click', (e)=>{
+                e.preventDefault();
+    
+                localStorage.removeItem('postionArray');
+                localStorage.removeItem('idSong');
+                localStorage.removeItem('type');
+                localStorage.removeItem('idArtistName');
+                localStorage.setItem('type', 'recent');
+                localStorage.setItem('positionArray', 0);
+                localStorage.setItem('idSong', this.recent.id);
+                localStorage.setItem('idArtistName', this.recent.id);
+                //console.log(this.idArtist.id);
+                window.location.href = 'music-player.html';
+            });
         }
     }
 

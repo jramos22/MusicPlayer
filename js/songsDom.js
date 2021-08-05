@@ -3,9 +3,11 @@ import {deleteOneSong} from './profile.js'
 
 
 class infoSongs {
-    constructor(data, playlist) {
+    constructor(data, playlist, artists, idArtist) {
         this.data = data;
         this.playlist = playlist;
+        this.artists = artists;
+        this.idArtist = idArtist;
     }
     artistSongsList() {
         const ul = document.getElementById('lists__songs');
@@ -34,6 +36,32 @@ class infoSongs {
         imgButton.setAttribute('src', 'img/play-icon-x35.png');
         Button.appendChild(imgButton);
 
+        Button.addEventListener('click', (e)=>{
+            e.preventDefault();
+            if (filename() === 'artist.html') {
+                localStorage.removeItem('postionArray');
+                localStorage.removeItem('idSong');
+                localStorage.removeItem('type');
+                localStorage.removeItem('idArtistName');
+                localStorage.setItem('type', 'artist');
+                localStorage.setItem('idArtistName', this.idArtist.id);
+                localStorage.setItem('positionArray', this.playlist);
+                localStorage.setItem('idSong', this.data.id);
+                console.log(this.idArtist.id);
+            }else{
+                localStorage.removeItem('postionArray');
+                localStorage.removeItem('idSong');
+                localStorage.removeItem('type');
+                localStorage.removeItem('idArtistName');
+                localStorage.setItem('type', 'playlist');
+                localStorage.setItem('positionArray', this.playlist._id);
+                localStorage.setItem('idSong', this.data.id);
+
+                console.log(this.playlist, this.data);
+            }
+            window.location.href = 'music-player.html';
+        });
+        
         if(filename() === 'profile.html'){
             const buttonDeleteSong = document.getElementById('btn__edit--song');
             const saveBtnPlst = document.getElementById('btn__save--js');

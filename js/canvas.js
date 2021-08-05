@@ -1,4 +1,4 @@
-import {getSongs, audio, song} from './music-player.js';
+import {getSongs, getFavorite, getRecent, audio, song} from './music-player.js';
 
 /* ******* CANVAS ANIMATION ******* */
 let canvas = document.querySelector("canvas");
@@ -133,7 +133,7 @@ function connectPoints(pointsA, pointsB) {
   }
 }
 
-function update(dt) {
+function update() {
   let audioIndex, audioValue;
 
   // get the current audio data
@@ -159,11 +159,11 @@ function update(dt) {
   }
 }
 
-function draw(dt) {
+function draw() {
   requestAnimationFrame(draw);
 
   if (running) {
-    update(dt);
+    update();
   }
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -173,8 +173,10 @@ function draw(dt) {
   connectPoints(pointsUp, pointsDown);
 }
 
-draw();
-getSongs();
+//draw();
+//getSongs();
+//getFavorite();
+//getRecent();
 
 export {
     draw,

@@ -53,7 +53,7 @@ function getRecent(id) {
                     .then((res) => {
                         //console.log(res);
                         const recentShow = new userinfo(res);
-                        recentShow.recentplay(res,'song__recent');
+                        recentShow.recentplay(res,'song__recent', 'recent');
                     })
             }
         })
@@ -84,7 +84,7 @@ function favorite(id) {
                         .then((res) => {
                             //console.log(res);
                             const recentShow = new userinfo(res);
-                            recentShow.recentplay(res,'tab__content');
+                            recentShow.recentplay(res,'tab__content', resRecent, i);
                         })
                 }
                 }
@@ -117,7 +117,7 @@ function getPlaylist(data) {
     for (let i = 0; i < data.idSongsAdded.length; i++) {
         //console.log(data.idSongsAdded[i]);
         const showPlaylist = new songsApi();
-        showPlaylist.song(data.idSongsAdded[i], data);
+        showPlaylist.song(data.idSongsAdded[i], data, `${i}`);
     }
 }
 
@@ -166,6 +166,22 @@ function updatePlaylist(id, value) {
         })
 }
 
+function updaterecent(id, value) {
+    fetch(`https://daken-app.herokuapp.com/recent/${id}`, {
+        headers: {
+            "Content-Type": "application/json"
+        },
+        method: 'PUT',
+        body: value,
+    })
+        .then((response) => {
+            return response.json();
+        })
+        .then((resPlaylist) => {
+            console.log(resPlaylist)
+        })
+}
+
 
 
 export {
@@ -177,5 +193,6 @@ export {
     getPlaylist,
     deleteOneSong,
     deletePlaylist,
-    updatePlaylist
+    updatePlaylist,
+    updaterecent
 }

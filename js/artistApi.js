@@ -2,6 +2,7 @@ import { infoArtist } from './artistDom.js';
 import { filename } from './locationFile.js';
 import { songsApi } from './songsApi.js';
 const idUser = localStorage.getItem("idUser");
+const idArtist = localStorage.getItem("idArtist");
 console.log(idUser);
 
 function apiArtists() {
@@ -23,7 +24,7 @@ function apiArtist(position, id) {
             const sogns = new songsApi();
             if (filename() === 'artist.html'){
             artistResponse.showArtistComplete(position);
-            sogns.songs(id);
+            sogns.songs(id, data, data[idArtist]);
             }
         });
 }

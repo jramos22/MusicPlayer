@@ -1,13 +1,22 @@
 import { draw } from "./canvas.js";
+import{updaterecent} from './profile.js'
 
-const track = document.getElementById('track');
+const type = localStorage.getItem('type');
+const positionArray = localStorage.getItem('positionArray');
+const idSong = localStorage.getItem('idSong');
+const idArtistName = localStorage.getItem('idArtistName');
+const favorite = localStorage.getItem('favorite');
+const idUser = localStorage.getItem('idUser');
+
+console.log(type, positionArray, idSong, idArtistName, idUser);
+
+//const track = document.getElementById('track');
 const progress = document.getElementById('progress');
 const play = document.getElementById('play');
 const next = document.getElementById('next');
 const prev = document.getElementById('prev');
 const name = document.getElementById('name');
 const album = document.getElementById('album');
-let current_track = 0;
 let song, audio, duration;
 let playing = false;
 
@@ -35,7 +44,7 @@ class Musicplayer {
   loadMetaData(audio) {
     audio.addEventListener('loadedmetadata', function () {
       duration = this.duration;
-    }, false); 
+    }, false);
   }
   playMusic(play) {
     play.onclick = function () {
@@ -44,65 +53,235 @@ class Musicplayer {
   }
 }
 
-function getSongs() {
+function getSongs(position, idArtistName) {
 
-  fetch(`https://kt2ul4cwza.execute-api.us-east-2.amazonaws.com/public/songs/radiohead`)
-  .then((response) => response.json())
-  .then((data => {
-    
-    const actualSong = data[current_track];
+  fetch(`https://kt2ul4cwza.execute-api.us-east-2.amazonaws.com/public/songs/${idArtistName}`)
+    .then((response) => response.json())
+    .then((data => {
+      let current_track = position;
+      const actualSong = data[current_track];
 
-    window.addEventListener('load', init(actualSong), false);
+      window.addEventListener('load', init(actualSong), false);
 
-    function nextSong() {
-      current_track++;
-      current_track = current_track % (actualSong.audio.length);
-      song = data[current_track];
-      audio.src = song.audio;
-      audio.play();
-      audio.onloadeddata = function() {
-        updateInfo(song);
+      function nextSong() {
+        current_track++;
+        current_track = current_track % (actualSong.audio.length);
+        song = data[current_track];
+        audio.src = song.audio;
+        audio.play();
+        audio.onloadeddata = function () {
+          updateInfo(song);
+        }
+        console.log(data.id);
+          const update ={
+            "idSong":`${data[current_track].id}`
+          }
+          updaterecent(idUser,JSON.stringify(update));
       }
-    }
 
-    function prevSong() {
-      current_track--;
-      current_track = (current_track == -1 ? (actualSong.audio.length - 1) : current_track);
-      song = data[current_track];
-      audio.src = song.audio;
-      audio.play();
-      audio.onloadeddata = function() {
-        updateInfo(song);
+      function prevSong() {
+        current_track--;
+        current_track = (current_track == -1 ? (actualSong.audio.length - 1) : current_track);
+        song = data[current_track];
+        audio.src = song.audio;
+        audio.play();
+        audio.onloadeddata = function () {
+          updateInfo(song);
+        }
+        console.log(data[current_track].id);
+          const update ={
+            "idSong":`${data[current_track].id}`
+          }
+          updaterecent(idUser,JSON.stringify(update));
       }
-    }
 
-    const playMusic = new Musicplayer();
-    playMusic.playMusic(play)
+      const playMusic = new Musicplayer();
+      playMusic.playMusic(play)
+      playMusic.playIcon(play);
+      playMusic.pauseIcon(play);
+      playMusic.timeUpdate(audio);
+      playMusic.loadMetaData(audio);
 
-    const playSong = new Musicplayer();
-    playSong.playIcon(play);
 
-    const pause = new Musicplayer();
-    pause.pauseIcon(play);
+      next.addEventListener("click", nextSong, false);
+      prev.addEventListener("click", prevSong, false);
+      console.log(data.id);
+          const update ={
+            "idSong":`${data[current_track].id}`
+          }
+          updaterecent(idUser,JSON.stringify(update));
 
-    const timeUpdateAudio = new Musicplayer();
-    timeUpdateAudio.timeUpdate(audio);
+    }))
+}
 
-    const metaData = new Musicplayer();
-    metaData.loadMetaData(audio);
+function getRecent(idSong) {
 
-  
-    next.addEventListener("click", nextSong, false);
-    prev.addEventListener("click", prevSong, false);
+  fetch(`https://kt2ul4cwza.execute-api.us-east-2.amazonaws.com/public/song/${idSong}`)
+    .then((response) => response.json())
+    .then((data => {
 
-  })) 
+      const actualSong = data;
+      console.log(data.audio);
+
+      window.addEventListener('load', init(actualSong), false);
+
+      function nextSong() {
+        current_track++;
+        current_track = current_track % (actualSong.audio.length);
+        song = data[current_track];
+        audio.src = song.audio;
+        audio.play();
+        audio.onloadeddata = function () {
+          updateInfo(song);
+        }
+      }
+
+      function prevSong() {
+        current_track--;
+        current_track = (current_track == -1 ? (actualSong.audio.length - 1) : current_track);
+        song = data[current_track];
+        audio.src = song.audio;
+        audio.play();
+        audio.onloadeddata = function () {
+          updateInfo(song);
+        }
+      }
+
+      const playMusic = new Musicplayer();
+      playMusic.playMusic(play)
+      playMusic.playIcon(play);
+      playMusic.pauseIcon(play);
+      playMusic.timeUpdate(audio);
+      playMusic.loadMetaData(audio);
+
+
+      next.addEventListener("click", nextSong, false);
+      prev.addEventListener("click", prevSong, false);
+
+    }))
+}
+
+function getFavorite(favorite, position) {
+
+  fetch(`https://daken-app.herokuapp.com/favorite/${favorite}`)
+    .then((response) => response.json())
+    .then((datas => {
+      let current_track = position;
+
+      function getAudio(datas, current_track) {
+        fetch(`https://kt2ul4cwza.execute-api.us-east-2.amazonaws.com/public/song/${datas.data[0].songs[current_track]}`, {
+        method: 'GET',
+      })
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data.audio);
+          console.log(data.id);
+          const update ={
+            "idSong":`${data.id}`
+          }
+          updaterecent(idUser,JSON.stringify(update));
+          const actualSong = data;
+
+          window.addEventListener('load', init(actualSong), false);
+
+          
+          const playMusic = new Musicplayer();
+          playMusic.playMusic(play)
+          playMusic.playIcon(play);
+          playMusic.pauseIcon(play);
+          playMusic.timeUpdate(audio);
+          playMusic.loadMetaData(audio);
+
+          next.addEventListener("click", nextSong, false);
+          prev.addEventListener("click", prevSong, false);
+
+        })
+        draw();
+      }
+      function nextSong() {
+        current_track++;
+        audio.pause();
+        getAudio(datas,current_track);
+      }
+
+      function prevSong() {
+        current_track--;
+        audio.pause();
+        getAudio(datas, current_track);
+      }
+
+
+      getAudio(datas,current_track);
+      
+      
+    }))
+}
+
+function getPlaylist(positionArray, idSong, idUser) {
+
+  fetch(`https://daken-app.herokuapp.com/playlist/${idUser}/${positionArray}`)
+    .then((response) => response.json())
+    .then((datas => {
+      console.log(datas);
+      let current_track = 0;
+
+      function getAudio(datas, current_track) {
+        fetch(`https://kt2ul4cwza.execute-api.us-east-2.amazonaws.com/public/song/${datas.data[0].idSongsAdded[current_track]}`, {
+        method: 'GET',
+      })
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data.id);
+          const update ={
+            "idSong":`${data.id}`
+          }
+          updaterecent(idUser,JSON.stringify(update));
+          const actualSong = data;
+
+          window.addEventListener('load', init(actualSong), false);
+
+          
+          const playMusic = new Musicplayer();
+          playMusic.playMusic(play)
+          playMusic.playIcon(play);
+          playMusic.pauseIcon(play);
+          playMusic.timeUpdate(audio);
+          playMusic.loadMetaData(audio);
+
+          next.addEventListener("click", nextSong, false);
+          prev.addEventListener("click", prevSong, false);
+
+        })
+        draw();
+      }
+      function nextSong() {
+        current_track++;
+        audio.pause();
+        getAudio(datas,current_track);
+      }
+
+      function prevSong() {
+        current_track--;
+        audio.pause();
+        getAudio(datas, current_track);
+      }
+
+
+      getAudio(datas,current_track);
+      
+      
+    }))
 }
 
 function updateTrack() {
   let curtime = audio.currentTime;
   let percent = Math.round((curtime * 100) / duration);
   progress.style.width = percent + '%';
-  if(percent==100) nextSong(); 
+  if (percent == 100) nextSong();
 }
 
 function init(data) {
@@ -118,11 +297,22 @@ function updateInfo(song) {
   album.textContent = song.album;
 }
 
-getSongs();
+if (type == 'artist') {
+  getSongs(positionArray, idArtistName);
+} else if (type == 'recent') {
+  getRecent(idSong);
+} else if (type == 'favorite') {
+  getFavorite(favorite, positionArray);
+} else if (type == 'playlist') {
+  getPlaylist(positionArray, idSong, idUser);
+}
+
 draw();
 
 export {
   getSongs,
+  getFavorite,
+  getRecent,
   audio,
   song,
 }

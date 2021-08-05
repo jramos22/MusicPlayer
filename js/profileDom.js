@@ -53,7 +53,7 @@ class userinfo {
         });
     }
 
-    recentplay(data, lugar){
+    recentplay(data, lugar, favorite, i){
         const recent = document.getElementById(`${lugar}`);
         const div = document.createElement('div');
         div.setAttribute('class', 'recent__display');
@@ -72,6 +72,32 @@ class userinfo {
 
         div.appendChild(recentButtton);
         recent.appendChild(div);
+        recentButtton.addEventListener('click', (e)=>{
+            e.preventDefault();
+
+            
+            localStorage.removeItem('idSong');
+            localStorage.removeItem('type');
+            localStorage.removeItem('idArtistName');
+            localStorage.setItem('type', 'recent');
+            localStorage.setItem('positionArray', lugar);
+            localStorage.setItem('idSong', data.id);
+            localStorage.setItem('idArtistName', data.id);
+            
+            if (favorite != 'recent') {
+                localStorage.removeItem('type');
+                localStorage.removeItem('favorite');
+                localStorage.removeItem('postionArray');
+                localStorage.setItem('type', 'favorite');
+                localStorage.setItem('favorite', favorite.data[0].idUser);
+                localStorage.setItem('positionArray', i);
+                console.log(favorite.data[0].idUser);
+                console.log(i);
+            }else{
+                console.log('hola');
+            }
+            window.location.href = 'music-player.html';
+        });
     }
 
     playlists(data){
@@ -89,6 +115,7 @@ class userinfo {
             remove.innerHTML = '';
             const namePlaylist = document.getElementById('playlist');
             namePlaylist.innerHTML = '';
+            console.log(data);
             getPlaylist(data);
         });
     }
@@ -190,5 +217,4 @@ class userinfo {
 
 export{
     userinfo,
-    //buttonName
 }
