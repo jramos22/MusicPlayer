@@ -9,8 +9,7 @@ function apiArtists() {
         .then((response) => response.json())
         .then((data) => {
             const artistResponse = new infoArtist(data);
-            console.log(filename());
-            if (filename() === 'loggin.html' || filename() === 'index.html' || filename() === 'index.html') {
+            if (filename() != 'artist.html') {
                 artistResponse.showArtist();
             }
         });
