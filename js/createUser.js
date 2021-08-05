@@ -33,7 +33,7 @@ function logged(email, password) {
             console.log(data);
             if (data.logginUser.status == true) {
                 localStorage.setItem("idUser", data.logginUser.id);
-                window.location.href = "index.html";
+                window.location.href = "loggin.html";
             }else{
                 alert('Email or password are not valid')
             }
