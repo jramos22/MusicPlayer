@@ -47,6 +47,7 @@
   }
   img {
     width: 45px;
+    border-radius: $first-border-radius;
   }
   p {
     color: white;
@@ -78,6 +79,7 @@
 
   img {
     width: 300px;
+    border-radius: $second-border-radius;
   }
   h3 {
     color: $third-text-color;

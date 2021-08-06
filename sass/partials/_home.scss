@@ -58,6 +58,7 @@
     }
 }
 
+
 .logged__view {
 
     background-color: $second-background;
@@ -88,6 +89,7 @@
     .logged__img-artis{
 
         img {
+            border-radius: $second-border-radius;
             width: 200px;
         }
     }

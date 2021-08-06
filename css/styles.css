@@ -167,11 +167,16 @@ body {
   list-style: none;
   margin: 0;
   padding: 0; }
+  .show__artist ul li {
+    text-decoration: none; }
 
 .show__artist #showArtist img {
   border-radius: 15px;
   height: 150px;
   width: 150px; }
+
+.show__artist #showArtist a {
+  text-decoration: none; }
 
 .form__wrapper {
   background-color: #211F27;
@@ -323,6 +328,7 @@ body {
 .logged__img {
   display: flex; }
   .logged__img .logged__img-artis img {
+    border-radius: 10px;
     width: 200px; }
 
 .logged__song {
@@ -380,7 +386,8 @@ body {
     background-color: #211F27;
     border-radius: 15px; }
   .lists__songs img {
-    width: 45px; }
+    width: 45px;
+    border-radius: 5px; }
   .lists__songs p {
     color: white; }
   .lists__songs span {
@@ -402,7 +409,8 @@ body {
   width: 300px;
   padding: 30px 50px; }
   .artist-info img {
-    width: 300px; }
+    width: 300px;
+    border-radius: 10px; }
   .artist-info h3 {
     color: #FF6F1E; }
   .artist-info p {
@@ -475,7 +483,7 @@ body {
     font-size: 18px;
     height: 35px;
     margin-left: 155px;
-    opacity: 0;
+    visibility: hidden;
     width: 75px; }
     .profile__info .button__save--playlist:hover {
       background-color: #008926;
@@ -488,15 +496,15 @@ body {
     font-size: 18px;
     height: 35px;
     margin-left: 15px;
-    opacity: 0; }
+    visibility: hidden; }
     .profile__info .button__delete--plst:hover {
       background-color: #E13600;
       color: #ffff; }
   .profile__info .btn__delete {
     width: 30px;
-    opacity: 0; }
+    visibility: hidden; }
   .profile__info .show__buttons {
-    opacity: 1; }
+    visibility: visible; }
   .profile__info .profile__recents {
     align-items: center;
     background-color: #1B1B1B;

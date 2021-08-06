@@ -87,7 +87,8 @@
     font-size: 18px;
     height: 35px;
     margin-left: 155px;
-    opacity: 0;
+    visibility: hidden;
+    //opacity: 0;
     width: 75px;
     &:hover{
       background-color: $sixth-color;
@@ -103,7 +104,8 @@
     font-size: 18px;
     height: 35px;
     margin-left: 15px;
-    opacity: 0;
+    visibility: hidden;
+    //opacity: 0;
     &:hover{
       background-color: $twelfth-color;
       color: $first-text-color;
@@ -112,11 +114,13 @@
 
   .btn__delete {
     width: 30px;
-    opacity: 0;
+    visibility: hidden;
+    //opacity: 0;
   }
 
   .show__buttons{
-    opacity: 1;
+    visibility: visible;
+    //opacity: 1;
   }
 
   .profile__recents {
