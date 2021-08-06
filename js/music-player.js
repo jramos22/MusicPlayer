@@ -84,6 +84,7 @@ function getSongs(position, idArtistName) {
           }
           updaterecent(idUser, JSON.stringify(update));
         }   
+        
       }
 
       function prevSong() {
@@ -122,13 +123,12 @@ function getSongs(position, idArtistName) {
         updaterecent(idUser, JSON.stringify(update));
       }
       const modal = document.getElementById('add__song');
-      modal.addEventListener('click', (e) => {
+      /* modal.addEventListener('click', (e) => {
         e.preventDefault();
         console.log(current_track);
         openModal(data[current_track].id, idUser);
-        
-      })
-     
+      }) */
+      openModal(actualSong.id, idUser);
     }))
 }
 
@@ -171,7 +171,6 @@ function getRecent(idSong) {
       playMusic.pauseIcon(play);
       playMusic.timeUpdate(audio);
       playMusic.loadMetaData(audio);
-
 
       next.addEventListener("click", nextSong, false);
       prev.addEventListener("click", prevSong, false);
