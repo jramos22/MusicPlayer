@@ -1,7 +1,5 @@
-
 .song-details {
     margin-top: 50px;
-    //margin-bottom: 50px;
 
     .trackinfo {
 
@@ -108,15 +106,11 @@
     }
 }
 
-
-/* *********** CANVAS ANIMATION ********* */
-
 canvas {
     background-color: $second-background;
     border-radius: $second-border-radius;
     display: block;
     max-width: 100%;
-    //border: 1px solid $third-color;
 }
 
 .call-to-action {

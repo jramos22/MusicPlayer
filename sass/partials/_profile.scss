@@ -88,7 +88,6 @@
     height: 35px;
     margin-left: 155px;
     visibility: hidden;
-    //opacity: 0;
     width: 75px;
     &:hover{
       background-color: $sixth-color;
@@ -105,7 +104,7 @@
     height: 35px;
     margin-left: 15px;
     visibility: hidden;
-    //opacity: 0;
+  
     &:hover{
       background-color: $twelfth-color;
       color: $first-text-color;
@@ -115,12 +114,10 @@
   .btn__delete {
     width: 30px;
     visibility: hidden;
-    //opacity: 0;
   }
 
   .show__buttons{
     visibility: visible;
-    //opacity: 1;
   }
 
   .profile__recents {
@@ -187,8 +184,6 @@
   } 
 }
 
-/* Accordion styles */
-
 .tabs {
   border-radius: $third-border-radius;
   border: none;
@@ -209,7 +204,6 @@
     justify-content: space-between;
     padding: 10px 10px;
     
-    /* Icon */
     &:hover {
       background: $nineth-color;
       border-radius: 15px 15px 0 0;
@@ -270,8 +264,6 @@
   }
 }
 
-// :checked
-
 input:checked {
   display: none;
   + .tab__label {
@@ -285,8 +277,6 @@ input:checked {
     padding: 1em;
   }
 }
-
-/* Playlists */
 
 .users__playlist {
 
