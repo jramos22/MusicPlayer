@@ -102,10 +102,9 @@ function getSongs(position, idArtistName) {
       playMusic.timeUpdate(audio);
       playMusic.loadMetaData(audio);
 
-
       next.addEventListener("click", nextSong, false);
       prev.addEventListener("click", prevSong, false);
-      console.log(data.id);
+      console.log(data.i);
           const update ={
             "idSong":`${data[current_track].id}`
           }
@@ -211,8 +210,7 @@ function getFavorite(favorite, position) {
         audio.pause();
         getAudio(datas, current_track);
       }
-
-
+      
       getAudio(datas,current_track);
       
       

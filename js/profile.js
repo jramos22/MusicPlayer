@@ -1,3 +1,5 @@
+import { filename } from './locationFile.js';
+import { ModalFunction } from './modal.js';
 import { userinfo } from './profileDom.js'
 import{ songsApi} from './songsApi.js'
 
@@ -99,18 +101,30 @@ function getPlaylists(id) {
             return response.json();
         })
         .then((resPlaylist) => {
-            console.log(resPlaylist.data);
-            if (resPlaylist.data.length === 0) {
-                const recentShow = new userinfo(null);
-                recentShow.recentplay(null, 'tab_content');
-            } else {
-                for (let i = 0; i < resPlaylist.data.length; i++) {
+
+            if(filename()=== 'music-player.html') {
+                console.log(resPlaylist);
+                const showPlaylistUser = new ModalFunction(resPlaylist)
+                for (let t = 0; t < resPlaylist.data.length; t++) {
+                    showPlaylistUser.getPlaylistsUser(resPlaylist.data[t]);
+                    console.log(resPlaylist.data[t]);
+                }
+    
+            } else if(filename() != 'music-player.html'){
+                console.log(resPlaylist.data);
+                if (resPlaylist.data.length === 0) {
+                    const recentShow = new userinfo(null);
+                    recentShow.recentplay(null, 'tab_content');
+                } else {
                     const showPlaylist = new userinfo(resPlaylist);
-                    showPlaylist.playlists(resPlaylist.data[i]);
+                    for (let i = 0; i < resPlaylist.data.length; i++) {
+                        showPlaylist.playlists(resPlaylist.data[i]);
+                    }
                 }
             }
         })
 }
+
 function getPlaylist(data) {
     const profile = new userinfo(data);
         profile.playlist(data);
@@ -178,11 +192,9 @@ function updaterecent(id, value) {
             return response.json();
         })
         .then((resPlaylist) => {
-            console.log(resPlaylist)
+            console.log(resPlaylist.data.idSong)
         })
 }
-
-
 
 export {
     getUser,

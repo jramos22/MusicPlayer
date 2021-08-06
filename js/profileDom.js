@@ -10,7 +10,6 @@ if(filename() === 'profile.html') {
     getPlaylists(id);
 }
 
-
 class userinfo {
     constructor(data){
         this.data = data.data;
@@ -213,6 +212,7 @@ class userinfo {
             }
         })
     }
+
 }
 
 export{
