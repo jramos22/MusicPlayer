@@ -2,12 +2,19 @@ import {favorite, getPlaylists, getPlaylist ,getRecent, getUser ,updateName, del
 import {filename} from './locationFile.js' 
 
 const id = localStorage.getItem('idUser');
-console.log(id);
+const status = localStorage.getItem('status');
+
+function statusComproved() {
+    if (status === 'true') {
+        getUser(id);
+        getRecent(id);
+        favorite(id);
+        getPlaylists(id);
+    }
+}
 if(filename() === 'profile.html') {
-    getUser(id);
-    getRecent(id);
-    favorite(id);
-    getPlaylists(id);
+    statusComproved();
+    
 }
 
 
@@ -91,10 +98,7 @@ class userinfo {
                 localStorage.setItem('type', 'favorite');
                 localStorage.setItem('favorite', favorite.data[0].idUser);
                 localStorage.setItem('positionArray', i);
-                console.log(favorite.data[0].idUser);
-                console.log(i);
             }else{
-                console.log('hola');
             }
             window.location.href = 'music-player.html';
         });
@@ -115,7 +119,6 @@ class userinfo {
             remove.innerHTML = '';
             const namePlaylist = document.getElementById('playlist');
             namePlaylist.innerHTML = '';
-            console.log(data);
             getPlaylist(data);
         });
     }

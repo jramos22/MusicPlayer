@@ -9,7 +9,6 @@ function getUser(idUser) {
             return response.json();
         })
         .then((resUser) => {
-            //console.log(resUser);
             const profile = new userinfo(resUser);
             profile.nameUser();
         })
@@ -26,9 +25,6 @@ function updateName(value, id) {
         .then((response) => {
             return response.json();
         })
-        .then((resUser) => {
-            //console.log(resUser);
-        })
 }
 
 function getRecent(id) {
@@ -39,7 +35,6 @@ function getRecent(id) {
             return response.json();
         })
         .then((resRecent) => {
-            //console.log(resRecent.data);
             if (resRecent.data.length === 0) {
                 const recentShow = new userinfo(null);
                 recentShow.recentplay(null);
@@ -51,7 +46,6 @@ function getRecent(id) {
                         return response.json();
                     })
                     .then((res) => {
-                        //console.log(res);
                         const recentShow = new userinfo(res);
                         recentShow.recentplay(res,'song__recent', 'recent');
                     })
@@ -68,13 +62,11 @@ function favorite(id) {
             return response.json();
         })
         .then((resRecent) => {
-            //console.log(resRecent.data);
             if (resRecent.data.length === 0) {
                 const recentShow = new userinfo(null);
                 recentShow.recentplay(null, 'tab_content');
             } else {
                 for (let i = 0; i < resRecent.data[0].songs.length; i++) {
-                   // console.log(resRecent.data[0].songs[i]);
                     fetch(`https://kt2ul4cwza.execute-api.us-east-2.amazonaws.com/public/song/${resRecent.data[0].songs[i]}`, {
                         method: 'GET',
                     })
@@ -82,7 +74,6 @@ function favorite(id) {
                             return response.json();
                         })
                         .then((res) => {
-                            //console.log(res);
                             const recentShow = new userinfo(res);
                             recentShow.recentplay(res,'tab__content', resRecent, i);
                         })
@@ -99,7 +90,6 @@ function getPlaylists(id) {
             return response.json();
         })
         .then((resPlaylist) => {
-            console.log(resPlaylist.data);
             if (resPlaylist.data.length === 0) {
                 const recentShow = new userinfo(null);
                 recentShow.recentplay(null, 'tab_content');
@@ -115,7 +105,6 @@ function getPlaylist(data) {
     const profile = new userinfo(data);
         profile.playlist(data);
     for (let i = 0; i < data.idSongsAdded.length; i++) {
-        //console.log(data.idSongsAdded[i]);
         const showPlaylist = new songsApi();
         showPlaylist.song(data.idSongsAdded[i], data, `${i}`);
     }
@@ -132,9 +121,6 @@ function deleteOneSong(id, value) {
         .then((response) => {
             return response.json();
         })
-        .then((resPlaylist) => {
-            console.log(resPlaylist)
-        })
 }
 
 function deletePlaylist(id) {
@@ -144,9 +130,6 @@ function deletePlaylist(id) {
     })
         .then((response) => {
             return response.json();
-        })
-        .then((resPlaylist) => {
-            console.log(resPlaylist)
         })
 }
 
@@ -161,9 +144,6 @@ function updatePlaylist(id, value) {
         .then((response) => {
             return response.json();
         })
-        .then((resPlaylist) => {
-            console.log(resPlaylist)
-        })
 }
 
 function updaterecent(id, value) {
@@ -176,9 +156,6 @@ function updaterecent(id, value) {
     })
         .then((response) => {
             return response.json();
-        })
-        .then((resPlaylist) => {
-            console.log(resPlaylist)
         })
 }
 

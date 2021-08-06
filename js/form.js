@@ -1,6 +1,5 @@
 import { checkForm, logged } from './createUser.js'
 const id = localStorage.removeItem('idUser');
-console.log(id);
 const loggin = document.getElementById('loggin');
 const emailLoggin = document.querySelectorAll('input')[0];
 const passwordLoggin = document.querySelectorAll('input')[1];

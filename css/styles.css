@@ -582,7 +582,8 @@ body {
     float: left;
     max-height: 0;
     padding: 0 1em;
-    transition: all .35s; }
+    transition: all .35s;
+    min-width: 200px; }
     .tab__content div {
       float: left; }
     .tab__content p {

@@ -1,5 +1,5 @@
 import {infoSongs} from './songsDom.js';
-let cont = 0;
+
 class songsApi{
 
     songs(id, artists, idArtist){
@@ -16,7 +16,6 @@ class songsApi{
         fetch(`https://kt2ul4cwza.execute-api.us-east-2.amazonaws.com/public/song/${id}`)
         .then((response) => response.json())
         .then((data) => { 
-                cont++;
                 const songsResponse = new infoSongs(data, playlist);
                 songsResponse.artistSongsList();
         });
