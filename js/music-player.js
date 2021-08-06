@@ -1,5 +1,6 @@
 import { draw } from "./canvas.js";
 import { updaterecent } from './profile.js'
+import { openModal } from "./modal.js";
 
 const type = localStorage.getItem('type');
 const positionArray = localStorage.getItem('positionArray');
@@ -73,7 +74,6 @@ function getSongs(type, position, idArtistName, idSong) {
       } else {
         actualSong = data;
       }
-      
 
       window.addEventListener('load', init(actualSong), false);
 
@@ -101,7 +101,7 @@ function getSongs(type, position, idArtistName, idSong) {
           }
           
           updaterecent(idUser, JSON.stringify(update));
-        }
+        }   
       }
 
       function prevSong() {
@@ -137,7 +137,6 @@ function getSongs(type, position, idArtistName, idSong) {
       playMusic.timeUpdate(audio);
       playMusic.loadMetaData(audio);
 
-
       next.addEventListener("click", nextSong, false);
       prev.addEventListener("click", prevSong, false);
       console.log(data.id);
@@ -156,6 +155,20 @@ function getSongs(type, position, idArtistName, idSong) {
         
         updaterecent(idUser, JSON.stringify(update));
       }
+      const modal = document.getElementById('add__song');
+      modal.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log(current_track);
+        openModal(data[current_track].id, idUser);
+        
+        const modal = document.getElementById('add__song');
+      /* modal.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log(current_track);
+        openModal(data[current_track].id, idUser);
+      }) */
+      openModal(actualSong.id, idUser);
+      })
 
     }))
 }
@@ -200,6 +213,7 @@ function getFavorite(favorite, position) {
 
             next.addEventListener("click", nextSong, false);
             prev.addEventListener("click", prevSong, false);
+            openModal(actualSong.id, favorite);
             
           })
       }
@@ -217,9 +231,7 @@ function getFavorite(favorite, position) {
         audio.pause();
         getAudio(datas, current_track);
       }
-
       getAudio(datas, current_track);
-
     }))
 }
 
@@ -258,6 +270,7 @@ function getPlaylist(positionArray, position ,idUser) {
 
             next.addEventListener("click", nextSong, false);
             prev.addEventListener("click", prevSong, false);
+            openModal(actualSong.id, idUser);
 
           })
         draw();
@@ -310,6 +323,7 @@ if (type == 'artist' || type == 'recent') {
 }
 
 draw();
+
 
 export {
   audio,

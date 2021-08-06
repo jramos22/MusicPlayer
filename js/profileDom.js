@@ -17,7 +17,6 @@ if(filename() === 'profile.html') {
     
 }
 
-
 class userinfo {
     constructor(data){
         this.data = data.data;
@@ -216,6 +215,7 @@ class userinfo {
             }
         })
     }
+
 }
 
 export{

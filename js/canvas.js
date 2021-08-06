@@ -176,6 +176,6 @@ function draw() {
 draw();
 
 export {
-    draw,
+  draw,
 }
 

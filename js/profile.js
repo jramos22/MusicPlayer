@@ -1,3 +1,5 @@
+import { filename } from './locationFile.js';
+import { ModalFunction } from './modal.js';
 import { userinfo } from './profileDom.js'
 import{ songsApi} from './songsApi.js'
 
@@ -101,6 +103,23 @@ function getPlaylists(id) {
             }
         })
 }
+
+function getModalPlaylist(id) {
+
+    fetch(`https://daken-app.herokuapp.com/playlist/${id}`, {
+        method: 'GET',
+    })
+        .then((response) => {
+            return response.json();
+        })
+        .then((resPlaylist) => {
+            const showModalPlaylist = new ModalFunction();
+            for (let i = 0; i < resPlaylist.data.length; i++) {
+                showModalPlaylist.getUserPlaylist(resPlaylist.data[i]);
+            }
+        })
+}
+
 function getPlaylist(data) {
     const profile = new userinfo(data);
         profile.playlist(data);
@@ -157,9 +176,10 @@ function updaterecent(id, value) {
         .then((response) => {
             return response.json();
         })
+        .then((resPlaylist) => {
+            console.log(resPlaylist.data.idSong)
+        })
 }
-
-
 
 export {
     getUser,
@@ -168,6 +188,7 @@ export {
     favorite,
     getPlaylists,
     getPlaylist,
+    getModalPlaylist,
     deleteOneSong,
     deletePlaylist,
     updatePlaylist,
