@@ -1,5 +1,5 @@
 import { filename } from './locationFile.js';
-import {getModalPlaylist, /* updatePlaylist */} from './profile.js'
+import {getModalPlaylist} from './profile.js'
 
 const id = localStorage.getItem('idUser');
 
@@ -16,7 +16,7 @@ function openModal(id, idUser) {
     console.log(id);
 
     open.addEventListener('click', () => {
-        modal_container.classList.add('show');  
+        modal_container.classList.add('show');
     });
     close.addEventListener('click', () => {
         modal_container.classList.remove('show');
@@ -25,12 +25,7 @@ function openModal(id, idUser) {
     savePlaylist.addEventListener('click', (e) => {
         e.preventDefault();
         const selectOption = document.getElementById('exist-list');
-        
         upsertPlaylist(selectOption.value, newPlaylist.value, id, idUser, selectOption.selectedOptions[0].innerText);
-
-        /* console.log(selectOption.value);
-        console.log(newPlaylist.value);
-        console.log(selectOption.selectedOptions[0].innerText); */
     })
 }
 
@@ -108,10 +103,9 @@ function checkFile() {
 
 checkFile();
 
-/* updatePlaylist(id); */
-/* openModal(); */
 
 export {
+    upsertPlaylist,
     openModal,
     ModalFunction,
 }
