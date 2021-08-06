@@ -11,7 +11,6 @@ function getUser(idUser) {
             return response.json();
         })
         .then((resUser) => {
-            //console.log(resUser);
             const profile = new userinfo(resUser);
             profile.nameUser();
         })
@@ -28,9 +27,6 @@ function updateName(value, id) {
         .then((response) => {
             return response.json();
         })
-        .then((resUser) => {
-            //console.log(resUser);
-        })
 }
 
 function getRecent(id) {
@@ -41,7 +37,6 @@ function getRecent(id) {
             return response.json();
         })
         .then((resRecent) => {
-            //console.log(resRecent.data);
             if (resRecent.data.length === 0) {
                 const recentShow = new userinfo(null);
                 recentShow.recentplay(null);
@@ -53,7 +48,6 @@ function getRecent(id) {
                         return response.json();
                     })
                     .then((res) => {
-                        //console.log(res);
                         const recentShow = new userinfo(res);
                         recentShow.recentplay(res,'song__recent', 'recent');
                     })
@@ -70,13 +64,11 @@ function favorite(id) {
             return response.json();
         })
         .then((resRecent) => {
-            //console.log(resRecent.data);
             if (resRecent.data.length === 0) {
                 const recentShow = new userinfo(null);
                 recentShow.recentplay(null, 'tab_content');
             } else {
                 for (let i = 0; i < resRecent.data[0].songs.length; i++) {
-                   // console.log(resRecent.data[0].songs[i]);
                     fetch(`https://kt2ul4cwza.execute-api.us-east-2.amazonaws.com/public/song/${resRecent.data[0].songs[i]}`, {
                         method: 'GET',
                     })
@@ -84,7 +76,6 @@ function favorite(id) {
                             return response.json();
                         })
                         .then((res) => {
-                            //console.log(res);
                             const recentShow = new userinfo(res);
                             recentShow.recentplay(res,'tab__content', resRecent, i);
                         })
@@ -101,26 +92,30 @@ function getPlaylists(id) {
             return response.json();
         })
         .then((resPlaylist) => {
-
-            if(filename()=== 'music-player.html') {
-                console.log(resPlaylist);
-                const showPlaylistUser = new ModalFunction(resPlaylist)
-                for (let t = 0; t < resPlaylist.data.length; t++) {
-                    showPlaylistUser.getPlaylistsUser(resPlaylist.data[t]);
-                    console.log(resPlaylist.data[t]);
-                }
-    
-            } else if(filename() != 'music-player.html'){
-                console.log(resPlaylist.data);
-                if (resPlaylist.data.length === 0) {
-                    const recentShow = new userinfo(null);
-                    recentShow.recentplay(null, 'tab_content');
-                } else {
+            if (resPlaylist.data.length === 0) {
+                const recentShow = new userinfo(null);
+                recentShow.recentplay(null, 'tab_content');
+            } else {
+                for (let i = 0; i < resPlaylist.data.length; i++) {
                     const showPlaylist = new userinfo(resPlaylist);
-                    for (let i = 0; i < resPlaylist.data.length; i++) {
-                        showPlaylist.playlists(resPlaylist.data[i]);
-                    }
+                    showPlaylist.playlists(resPlaylist.data[i]);
                 }
+            }
+        })
+}
+
+function getModalPlaylist(id) {
+
+    fetch(`https://daken-app.herokuapp.com/playlist/${id}`, {
+        method: 'GET',
+    })
+        .then((response) => {
+            return response.json();
+        })
+        .then((resPlaylist) => {
+            const showModalPlaylist = new ModalFunction();
+            for (let i = 0; i < resPlaylist.data.length; i++) {
+                showModalPlaylist.getUserPlaylist(resPlaylist.data[i]);
             }
         })
 }
@@ -129,7 +124,6 @@ function getPlaylist(data) {
     const profile = new userinfo(data);
         profile.playlist(data);
     for (let i = 0; i < data.idSongsAdded.length; i++) {
-        //console.log(data.idSongsAdded[i]);
         const showPlaylist = new songsApi();
         showPlaylist.song(data.idSongsAdded[i], data, `${i}`);
     }
@@ -146,9 +140,6 @@ function deleteOneSong(id, value) {
         .then((response) => {
             return response.json();
         })
-        .then((resPlaylist) => {
-            console.log(resPlaylist)
-        })
 }
 
 function deletePlaylist(id) {
@@ -158,9 +149,6 @@ function deletePlaylist(id) {
     })
         .then((response) => {
             return response.json();
-        })
-        .then((resPlaylist) => {
-            console.log(resPlaylist)
         })
 }
 
@@ -174,9 +162,6 @@ function updatePlaylist(id, value) {
     })
         .then((response) => {
             return response.json();
-        })
-        .then((resPlaylist) => {
-            console.log(resPlaylist)
         })
 }
 
@@ -203,6 +188,7 @@ export {
     favorite,
     getPlaylists,
     getPlaylist,
+    getModalPlaylist,
     deleteOneSong,
     deletePlaylist,
     updatePlaylist,

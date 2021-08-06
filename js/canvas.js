@@ -1,4 +1,4 @@
-import {getSongs, getFavorite, getRecent, audio, song} from './music-player.js';
+import {audio, song} from './music-player.js';
 
 /* ******* CANVAS ANIMATION ******* */
 let canvas = document.querySelector("canvas");
@@ -173,10 +173,7 @@ function draw() {
   connectPoints(pointsUp, pointsDown);
 }
 
-//draw();
-//getSongs();
-//getFavorite();
-//getRecent();
+draw();
 
 export {
   draw,

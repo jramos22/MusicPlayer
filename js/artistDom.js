@@ -1,7 +1,6 @@
 import {apiArtists, apiArtist} from './artistApi.js';
 const idArtist = localStorage.getItem("idArtist");
 const nameArtist = localStorage.getItem("nameArtist");
-console.log(idArtist);
 apiArtists();
 
 apiArtist(idArtist,nameArtist);

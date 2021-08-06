@@ -12,9 +12,7 @@ class infoSongs {
     artistSongsList() {
         const ul = document.getElementById('lists__songs');
         const li = document.createElement('li');
-        li.setAttribute('class', 'dltOne--song');
-
-        //console.log(li);        
+        li.setAttribute('class', 'dltOne--song');       
         ul.appendChild(li);
 
         const imgSongs = document.createElement('img');
@@ -47,17 +45,16 @@ class infoSongs {
                 localStorage.setItem('idArtistName', this.idArtist.id);
                 localStorage.setItem('positionArray', this.playlist);
                 localStorage.setItem('idSong', this.data.id);
-                console.log(this.idArtist.id);
             }else{
                 localStorage.removeItem('postionArray');
                 localStorage.removeItem('idSong');
                 localStorage.removeItem('type');
                 localStorage.removeItem('idArtistName');
+                localStorage.removeItem('postion');
+                localStorage.setItem('position', this.playlist.idSongsAdded.indexOf(this.data.id));
                 localStorage.setItem('type', 'playlist');
                 localStorage.setItem('positionArray', this.playlist._id);
                 localStorage.setItem('idSong', this.data.id);
-
-                console.log(this.playlist, this.data);
             }
             window.location.href = 'music-player.html';
         });
@@ -93,7 +90,6 @@ class infoSongs {
                         "playlistName": `${this.playlist.playlistName}`,
                         "idSongsAdded":[`${this.data.id}`]
                     }
-                    console.log(this.data);
                     const li = e.target.parentElement.parentElement;
                     li.remove();
                     deleteOneSong(this.playlist._id, JSON.stringify(infoPlaylist));

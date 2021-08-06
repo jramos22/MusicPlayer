@@ -1,7 +1,7 @@
 import{getUser}from './user.js'
 
 const idUser = localStorage.getItem("idUser");
-console.log(idUser);
+const status = localStorage.getItem('status');
 
 class infoLogged {
     constructor(user, recent) {
@@ -59,15 +59,18 @@ class infoLogged {
                 localStorage.setItem('positionArray', 0);
                 localStorage.setItem('idSong', this.recent.id);
                 localStorage.setItem('idArtistName', this.recent.id);
-                //console.log(this.idArtist.id);
                 window.location.href = 'music-player.html';
             });
         }
     }
 
 }
-
-getUser(idUser);
+function statusCheck() {
+    if (status == 'true') {
+        getUser(idUser);
+    }
+}
+statusCheck();
 
 export{
     infoLogged
