@@ -1,5 +1,4 @@
-import { filename } from './locationFile.js';
-import { ModalFunction } from './modal.js';
+import { ModalFunction } from './modalDom.js';
 import { userinfo } from './profileDom.js'
 import{ songsApi} from './songsApi.js'
 
@@ -175,9 +174,6 @@ function updaterecent(id, value) {
     })
         .then((response) => {
             return response.json();
-        })
-        .then((resPlaylist) => {
-            console.log(resPlaylist.data.idSong)
         })
 }
 

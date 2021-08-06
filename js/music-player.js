@@ -1,6 +1,6 @@
 import { draw } from "./canvas.js";
 import { updaterecent } from './profile.js'
-import { openModal, upsertPlaylist } from "./modal.js";
+import { addFavorite, upsertPlaylist } from "./actionsMusicPlayer.js";
 
 const type = localStorage.getItem('type');
 const positionArray = localStorage.getItem('positionArray');
@@ -10,8 +10,6 @@ const favorite = localStorage.getItem('favorite');
 const idUser = localStorage.getItem('idUser');
 const status = localStorage.getItem('status');
 const position = localStorage.getItem('position');
-
-console.log(type, positionArray, idSong, idArtistName, idUser, position);
 
 const progress = document.getElementById('progress');
 const play = document.getElementById('play');
@@ -88,7 +86,6 @@ function getSongs(type, position, idArtistName, idSong) {
         audio.onloadeddata = function () {
           updateInfo(song);
         }
-        console.log(data.id);
 
         if (status == 'true') {
           let update = '';
@@ -117,7 +114,6 @@ function getSongs(type, position, idArtistName, idSong) {
         audio.onloadeddata = function () {
           updateInfo(song);
         }
-        console.log(data[current_track].id);
         if (status == 'true') {
           let update = '';
           if (type == 'artist') {
@@ -143,7 +139,6 @@ function getSongs(type, position, idArtistName, idSong) {
 
       next.addEventListener("click", nextSong, false);
       prev.addEventListener("click", prevSong, false);
-      console.log(data.id);
 
       if (status == 'true') {
         let update = '';
@@ -165,6 +160,7 @@ function getSongs(type, position, idArtistName, idSong) {
       const savePlaylist = document.getElementById('save-playlist');
       const newPlaylist = document.getElementById('add-list');
       const close = document.getElementById('close');
+      const getfavoriteButton = document.getElementById('add_favorite');
 
       open.addEventListener('click', (e) => {
         e.preventDefault();
@@ -180,91 +176,55 @@ function getSongs(type, position, idArtistName, idSong) {
         const selectOption = document.getElementById('exist-list');
         upsertPlaylist(selectOption.value, newPlaylist.value, actualSong.id, idUser, selectOption.selectedOptions[0].innerText);
       })
+
+      getfavoriteButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        addFavorite(idUser, actualSong.id);
+      })
     }))
 }
 
-function getFavorite(favorite, position) {
 
-  fetch(`https://daken-app.herokuapp.com/favorite/${favorite}`, {
+function getPlaylist(type, positionArray, position, idUser, favorite) {
+  let URL = '';
+  if (type == 'playlist') {
+    URL = `https://daken-app.herokuapp.com/playlist/${idUser}/${positionArray}`;
+  } else if (type == 'favorite') {
+    URL = `https://daken-app.herokuapp.com/favorite/${favorite}`;
+  }
+  fetch(URL, {
     method: 'GET',
   })
     .then((response) => response.json())
     .then((datas => {
       let current_track = position;
 
-      function getAudio(datas, current_track) {
-        fetch(`https://kt2ul4cwza.execute-api.us-east-2.amazonaws.com/public/song/${datas.data[0].songs[current_track]}`, {
+      function getAudio(datas, current_track, type, favorite) {
+        let URLSONGS = '';
+        if (type == 'playlist') {
+
+          URLSONGS = `https://kt2ul4cwza.execute-api.us-east-2.amazonaws.com/public/song/${datas.data[0].idSongsAdded[current_track]}`;
+
+        } else if (type == 'favorite') {
+          URLSONGS = `https://kt2ul4cwza.execute-api.us-east-2.amazonaws.com/public/song/${datas.data[0].songs[current_track]}`;
+        }
+        fetch(URLSONGS, {
           method: 'GET',
         })
           .then((response) => {
             return response.json();
           })
           .then((data) => {
-            console.log(data.audio);
-            console.log(data.id);
-            if (status == 'true') {
-              const update = {
-                "idSong": `${data.id}`
-              }
-              updaterecent(idUser, JSON.stringify(update));
-            }
 
-            const actualSong = data;
-
-            window.addEventListener('load', init(actualSong), false);
-
-
-            const playMusic = new Musicplayer();
-            playMusic.playMusic(play)
-            playMusic.playIcon(play);
-            playMusic.pauseIcon(play);
-            playMusic.timeUpdate(audio);
-            playMusic.loadMetaData(audio);
-
-            next.addEventListener("click", nextSong, false);
-            prev.addEventListener("click", prevSong, false);
-            openModal(actualSong.id, favorite);
-
-          })
-      }
-      function nextSong() {
-        current_track++;
-        audio.pause();
-        getAudio(datas, current_track);
-      }
-
-      function prevSong(actualSong) {
-        current_track--;
-        song = actualSong;
-        audio.src = song;
-        console.log(audio.src);
-        audio.pause();
-        getAudio(datas, current_track);
-      }
-      getAudio(datas, current_track);
-    }))
-}
-
-function getPlaylist(positionArray, position, idUser) {
-
-  fetch(`https://daken-app.herokuapp.com/playlist/${idUser}/${positionArray}`)
-    .then((response) => response.json())
-    .then((datas => {
-      let current_track = position;
-      console.log(datas.data[0].idSongsAdded[current_track]);
-      function getAudio(datas, current_track) {
-        fetch(`https://kt2ul4cwza.execute-api.us-east-2.amazonaws.com/public/song/${datas.data[0].idSongsAdded[current_track]}`, {
-          method: 'GET',
-        })
-          .then((response) => {
-            return response.json();
-          })
-          .then((data) => {
-            console.log(data.id);
             const update = {
               "idSong": `${data.id}`
             }
-            updaterecent(idUser, JSON.stringify(update));
+            if (type == 'playlist') {
+              updaterecent(idUser, JSON.stringify(update));
+            }else{
+              updaterecent(favorite, JSON.stringify(update));
+            }
+            
             const actualSong = data;
 
             window.addEventListener('load', init(actualSong), false);
@@ -299,23 +259,42 @@ function getPlaylist(positionArray, position, idUser) {
         e.preventDefault();
         const newPlaylist = document.getElementById('add-list');
         const selectOption = document.getElementById('exist-list');
-        upsertPlaylist(selectOption.value, newPlaylist.value, datas.data[0].idSongsAdded[current_track], idUser, selectOption.selectedOptions[0].innerText);
+        let positionSong = '';
+        if (type == 'playlist') {
+          positionSong = datas.data[0].idSongsAdded[current_track];
+        }else{
+          positionSong = datas.data[0].songs[current_track];
+        }
+        upsertPlaylist(selectOption.value, newPlaylist.value, positionSong, idUser, selectOption.selectedOptions[0].innerText);
+      })
+
+      const getfavoriteButton = document.getElementById('add_favorite');
+
+      getfavoriteButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        let positionAdd = '';
+        if (type == 'playlist') {
+          positionAdd = datas.data[0].idSongsAdded[current_track];
+        }else{
+          positionAdd = datas.data[0].songs[current_track];
+        }
+        addFavorite(idUser, positionAdd);
       })
 
       function nextSong() {
         current_track++;
         audio.pause();
-        getAudio(datas, current_track);
+        getAudio(datas, current_track, type, favorite);
       }
 
       function prevSong() {
         current_track--;
         audio.pause();
-        getAudio(datas, current_track);
+        getAudio(datas, current_track, type, favorite);
       }
 
 
-      getAudio(datas, current_track);
+      getAudio(datas, current_track, type, favorite);
 
 
     }))
@@ -343,10 +322,8 @@ function updateInfo(song) {
 
 if (type == 'artist' || type == 'recent') {
   getSongs(type, positionArray, idArtistName, idSong);
-} else if (type == 'favorite') {
-  getFavorite(favorite, positionArray);
-} else if (type == 'playlist') {
-  getPlaylist(positionArray, position, idUser);
+} else if (type == 'playlist' || type == 'favorite') {
+  getPlaylist(type, positionArray, position, idUser, favorite);
 }
 
 draw();
