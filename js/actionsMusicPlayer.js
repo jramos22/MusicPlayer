@@ -23,6 +23,9 @@ function upsertPlaylist(selectPlaylist, newPlaylist, id, idUser, name) {
             .then((response) => {
                 return response.json();
             })
+            .then(() => {
+                alert('song added successfully')
+            })
             
     } else {
         const value = {
@@ -42,6 +45,9 @@ function upsertPlaylist(selectPlaylist, newPlaylist, id, idUser, name) {
             .then((response) => {
                 return response.json();
             })
+            .then(() => {
+                alert('Playlist created')
+            })
     }
 }
 function addFavorite(idUser, idSong) {
@@ -59,6 +65,9 @@ function addFavorite(idUser, idSong) {
         })
             .then((response) => {
                 return response.json();
+            })
+            .then(() => {
+                alert('Favorite song added')
             })
     }
 

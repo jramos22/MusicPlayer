@@ -1,7 +1,7 @@
 import { infoArtist } from './artistDom.js';
 import { filename } from './locationFile.js';
 import { songsApi } from './songsApi.js';
-const idUser = localStorage.getItem("idUser");
+
 const idArtist = localStorage.getItem("idArtist");
 
 function apiArtists() {

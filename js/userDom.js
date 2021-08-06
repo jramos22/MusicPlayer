@@ -50,7 +50,6 @@ class infoLogged {
 
             recentButtton.addEventListener('click', (e)=>{
                 e.preventDefault();
-    
                 localStorage.removeItem('postionArray');
                 localStorage.removeItem('idSong');
                 localStorage.removeItem('type');

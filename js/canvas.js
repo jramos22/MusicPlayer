@@ -1,6 +1,6 @@
 import {audio, song} from './music-player.js';
 
-/* ******* CANVAS ANIMATION ******* */
+
 let canvas = document.querySelector("canvas");
 let ctx = canvas.getContext("2d");
 canvas.width = document.body.clientWidth;
@@ -16,7 +16,7 @@ let running = false;
 let pCircle = 2 * Math.PI * radius;
 let angleExtra = 90;
 
-// Create points
+
 for(let angle = 0; angle < 360; angle += interval) {
   let distUp = 1.1;
   let distDown = 0.9;
@@ -36,11 +36,9 @@ for(let angle = 0; angle < 360; angle += interval) {
   });
 }
 
-// -------------
-// Audio stuff
-// -------------
 
-// make a Web Audio Context
+
+
 const context = new AudioContext();
 const splitter = context.createChannelSplitter();
 
@@ -53,31 +51,29 @@ analyserR.fftSize = 8192;
 splitter.connect(analyserL, 0, 0);
 splitter.connect(analyserR, 1, 0);
 
-// Make a buffer to receive the audio data
+
 const bufferLengthL = analyserL.frequencyBinCount;
 const audioDataArrayL = new Uint8Array(bufferLengthL);
 
 const bufferLengthR = analyserR.frequencyBinCount;
 const audioDataArrayR = new Uint8Array(bufferLengthR);
 
-// Make a audio node
-//const audio = new Audio();
+
 
 function loadAudio() {
   audio.loop = false;
   audio.autoplay = false;
   audio.setAttribute('crossorigin', 'anonymous');
 
-  // call `handleCanplay` when it music can be played
+  
   audio.addEventListener('canplay', handleCanplay);
-  audio.src = song.audio; //"https://cetav.s3.us-east-2.amazonaws.com/runaway.mp3"
+  audio.src = song.audio;
   audio.load();
   running = true;
 }
 
 function handleCanplay() {
-  // connect the audio element to the analyser node and the analyser node
-  // to the main Web Audio context
+  
   const source = context.createMediaElementSource(audio);
   source.connect(splitter);
   splitter.connect(context.destination);
@@ -102,9 +98,7 @@ document.body.addEventListener('touchend', function(ev) {
   context.resume();
 });
 
-// -------------
-// Canvas stuff
-// -------------
+
 
 function drawLine(points) {
   let origin = points[0];
@@ -136,13 +130,13 @@ function connectPoints(pointsA, pointsB) {
 function update() {
   let audioIndex, audioValue;
 
-  // get the current audio data
+  
   analyserL.getByteFrequencyData(audioDataArrayL);
   analyserR.getByteFrequencyData(audioDataArrayR);
 
   for (let i = 0; i < pointsUp.length; i++) {
     audioIndex = Math.ceil(pointsUp[i].angle * (bufferLengthL / (pCircle * 2))) | 0;
-    // get the audio data and make it go from 0 to 1
+    
     audioValue = audioDataArrayL[audioIndex] / 255;
 
     pointsUp[i].dist = 1.4 + audioValue * 0.8;
@@ -150,7 +144,7 @@ function update() {
     pointsUp[i].y = centerY + radius * Math.sin(-pointsUp[i].angle * Math.PI / 180) * pointsUp[i].dist;
 
     audioIndex = Math.ceil(pointsDown[i].angle * (bufferLengthR / (pCircle * 2))) | 0;
-    // get the audio data and make it go from 0 to 1
+    
     audioValue = audioDataArrayR[audioIndex] / 255;
 
     pointsDown[i].dist = 0.9 + audioValue * 0.2;
