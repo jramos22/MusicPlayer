@@ -1,7 +1,7 @@
 import { ModalFunction } from './modalDom.js';
 import { userinfo } from './profileDom.js'
 import{ songsApi} from './songsApi.js'
-
+const status = localStorage.getItem('status');
 function getUser(idUser) {
     fetch(`https://daken-app.herokuapp.com/user/${idUser}`, {
         method: 'GET',
@@ -104,8 +104,8 @@ function getPlaylists(id) {
 }
 
 function getModalPlaylist(id) {
-
-    fetch(`https://daken-app.herokuapp.com/playlist/${id}`, {
+    if (status == 'true') {
+        fetch(`https://daken-app.herokuapp.com/playlist/${id}`, {
         method: 'GET',
     })
         .then((response) => {
@@ -117,6 +117,9 @@ function getModalPlaylist(id) {
                 showModalPlaylist.getUserPlaylist(resPlaylist.data[i]);
             }
         })
+    }else{
+
+    }
 }
 
 function getPlaylist(data) {
