@@ -12,7 +12,7 @@ function upsertPlaylist(selectPlaylist, newPlaylist, id, idUser, name) {
             "playlistName" : `${name}`,
             "idSongsAdded":[`${id}`]
         }
-
+        
         fetch(`https://daken-app.herokuapp.com/playlist/${selectPlaylist}`, {
             headers: {
                 "Content-Type": "application/json"

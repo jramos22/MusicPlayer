@@ -174,12 +174,21 @@ function getSongs(type, position, idArtistName, idSong) {
       savePlaylist.addEventListener('click', (e) => {
         e.preventDefault();
         const selectOption = document.getElementById('exist-list');
-        upsertPlaylist(selectOption.value, newPlaylist.value, actualSong.id, idUser, selectOption.selectedOptions[0].innerText);
+        if (status === 'true') {
+          upsertPlaylist(selectOption.value, newPlaylist.value, actualSong.id, idUser, selectOption.selectedOptions[0].innerText);
+        }else{
+
+        }
+        
       })
 
       getfavoriteButton.addEventListener('click', (e) => {
         e.preventDefault();
-        addFavorite(idUser, actualSong.id);
+        if (status === 'true') {
+          addFavorite(idUser, actualSong.id);
+        }else{
+        }
+        
       })
     }))
 }
@@ -265,7 +274,12 @@ function getPlaylist(type, positionArray, position, idUser, favorite) {
         }else{
           positionSong = datas.data[0].songs[current_track];
         }
-        upsertPlaylist(selectOption.value, newPlaylist.value, positionSong, idUser, selectOption.selectedOptions[0].innerText);
+        if (status == 'true') {
+          upsertPlaylist(selectOption.value, newPlaylist.value, positionSong, idUser, selectOption.selectedOptions[0].innerText);
+        }else{
+
+        }
+        
       })
 
       const getfavoriteButton = document.getElementById('add_favorite');
@@ -278,7 +292,10 @@ function getPlaylist(type, positionArray, position, idUser, favorite) {
         }else{
           positionAdd = datas.data[0].songs[current_track];
         }
-        addFavorite(idUser, positionAdd);
+        if (status == 'true') {
+          addFavorite(idUser, positionAdd);
+        }else{
+        }
       })
 
       function nextSong() {
