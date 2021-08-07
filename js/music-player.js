@@ -187,18 +187,25 @@ function getSongs(type, position, idArtistName, idSong) {
 
 function getPlaylist(type, positionArray, position, idUser, favorite) {
   let URL = '';
+  let current_track = '';
   if (type == 'playlist') {
     URL = `https://daken-app.herokuapp.com/playlist/${idUser}/${positionArray}`;
   } else if (type == 'favorite') {
+    
     URL = `https://daken-app.herokuapp.com/favorite/${favorite}`;
+    
   }
   fetch(URL, {
     method: 'GET',
   })
     .then((response) => response.json())
     .then((datas => {
-      let current_track = position;
-
+      if(type == 'playlist'){
+        current_track = position;
+      } else {
+        current_track = positionArray;
+      }
+      
       function getAudio(datas, current_track, type, favorite) {
         let URLSONGS = '';
         if (type == 'playlist') {
