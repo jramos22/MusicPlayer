@@ -1,165 +1,164 @@
 .loggin__wrapper {
-    display: flex;
-    justify-content: space-between;   
-    margin-top: 30px;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	margin-top: 30px;
+	overflow: hidden;
 }
 
-.loggin__artist{
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 650px;
+.loggin__artist {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 650px;
 }
 
 .show__artist {
+	padding-top: 40px;
+	h1 {
+		color: $first-text-color;
+		margin: 0px 0px 0px;
+	}
 
-    h1 {
-        color: $first-text-color;
-        margin: 0px 0px 40px;
-    }
+	ul {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		list-style: none;
+		margin: 0;
+		padding: 0;
 
-    ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        list-style: none;
-        margin: 0;
-        padding: 0;
+		li {
+			text-decoration: none;
+		}
+		margin: 3% 4%;
+	}
 
-        li {
-            text-decoration: none;
-        }
-    }
-
-    #showArtist {
-
-        img {
-            border-radius: $third-border-radius;
-            height: 150px;
-            width: 150px;
-        }
-        a {
-            text-decoration: none;
-        }
-    }
+	#showArtist {
+		img {
+			border-radius: $third-border-radius;
+			height: 150px;
+			width: 150px;
+		}
+		a {
+			text-decoration: none;
+		}
+	}
 }
 
 .form__wrapper {
-    background-color: $second-background;
-    border-radius: $third-border-radius;
-    width: 400px;
+	margin-bottom: 3%;
+	background-color: $second-background;
+	border-radius: $third-border-radius;
+	width: 400px;
 
-    .sign__title {
-        color: $first-text-color;
-        margin-bottom: 10px;
-        margin-top: 20px;
-    }
-    .create__title {
-        color: $first-text-color;
-        margin-bottom: 10px;
-        margin-top: 0;
-    }
+	.sign__title {
+		color: $first-text-color;
+		margin-bottom: 10px;
+		margin-top: 20px;
+	}
+	.create__title {
+		color: $first-text-color;
+		margin-bottom: 10px;
+		margin-top: 0;
+	}
 }
 
 .sign__wrapper {
-    margin: 0 auto;
-    width: 300px;
+	margin: 0 auto;
+	width: 300px;
 }
 
 .sign__container {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-    label {
-        color: $first-text-color;
-        margin-bottom: 10px;
-    }
-    input {
-        background-color: $second-background;
-        border-radius: $first-border-radius;
-        border: 1px solid $fifth-color;
-        color: $first-text-color;
-        height: 30px;
-        margin-bottom: 15px;
-    }
+	label {
+		color: $first-text-color;
+		margin-bottom: 10px;
+	}
+	input {
+		background-color: $second-background;
+		border-radius: $first-border-radius;
+		border: 1px solid $fifth-color;
+		color: $first-text-color;
+		height: 30px;
+		margin-bottom: 15px;
+	}
 }
 
-.btn__sign{
+.btn__sign {
+	background-color: $third-color;
+	border-radius: $first-border-radius;
+	border: none;
+	color: $first-text-color;
+	font-weight: bold;
+	height: 35px;
+	letter-spacing: normal;
+	width: 100%;
 
-    background-color: $third-color;
-    border-radius: $first-border-radius;
-    border: none;
-    color: $first-text-color;
-    font-weight: bold;
-    height: 35px;
-    letter-spacing: normal;
-    width: 100%;
-
-    &:hover {
-        background-color: #3703A4;
-    }
+	&:hover {
+		background-color: #3703a4;
+	}
 }
 
 .form__division {
+	align-items: center;
+	color: $second-text-color;
+	display: flex;
+	flex-direction: row;
+	font-size: 16px;
+	justify-content: space-between;
+	margin: 0 auto;
+	width: 300px;
 
-    align-items: center;
-    color: $second-text-color;
-    display: flex;
-    flex-direction: row;
-    font-size: 16px;
-    justify-content: space-between;
-    margin: 0 auto;
-    width: 300px;
+	.line__division {
+		width: 120px;
 
-    .line__division {
-
-        width: 120px;
-
-        hr {
-            background-color: $second-text-color;
-            border: none;
-            height: 1px;
-        }   
-    }
+		hr {
+			background-color: $second-text-color;
+			border: none;
+			height: 1px;
+		}
+	}
 }
 
 .create__wrapper {
-    margin: 0 auto;
-    width: 300px;
+	margin: 0 auto;
+	width: 300px;
 }
 
 .create__container {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-    label {
-        color: $first-text-color;
-        margin-bottom: 10px;
-    }
-    input {
-        background-color: $second-background;
-        border-radius: $first-border-radius;
-        border: 1px solid $fifth-color;
-        color: $first-text-color;
-        height: 30px;
-        margin-bottom: 15px;
-    }
+	label {
+		color: $first-text-color;
+		margin-bottom: 10px;
+	}
+	input {
+		background-color: $second-background;
+		border-radius: $first-border-radius;
+		border: 1px solid $fifth-color;
+		color: $first-text-color;
+		height: 30px;
+		margin-bottom: 15px;
+	}
 }
 
-.btn__create{
+.btn__create {
+	background-color: $fourth-color;
+	border-radius: $first-border-radius;
+	border: none;
+	color: $first-text-color;
+	font-weight: bold;
+	height: 35px;
+	letter-spacing: normal;
+	margin-bottom: 30px;
+	width: 100%;
 
-    background-color: $fourth-color;
-    border-radius: $first-border-radius;
-    border: none;
-    color: $first-text-color;
-    font-weight: bold;
-    height: 35px;
-    letter-spacing: normal;
-    margin-bottom: 30px;
-    width: 100%;
-
-    &:hover {
-        background-color: $second-hover-btn;
-    }
+	&:hover {
+		background-color: $second-hover-btn;
+	}
 }

@@ -1,87 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="img/daken-logo.png" />
+		<link rel="stylesheet" href="css/styles.css" />
+		<title>daken Music</title>
+	</head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="img/daken-logo.png">
-  <link rel="stylesheet" href="css/styles.css">
-  <title>daken Music</title>
-</head>
+	<body>
+		<div class="principal__wrapper">
+			<div class="header__wrapper">
+				<div class="header__logo">
+					<img
+						src="img/principal-logo.png"
+						alt="logo-dake-music"
+						srcset=""
+					/>
+				</div>
+			</div>
 
-<body>
-  <div class="principal__wrapper">
-    <div class="header__wrapper">
-      <div class="header__logo">
-        <img src="img/principal-logo.png" alt="logo-dake-music" srcset="">
-      </div>
-    </div>
+			<div class="loggin__wrapper">
+				<div class="loggin__artist">
+					<div class="show__artist">
+						<h1>Artists</h1>
+						<ul id="showArtist"></ul>
+					</div>
+				</div>
+				<div class="form__wrapper">
+					<div class="sign__wrapper">
+						<h2 class="sign__title">Sign in</h2>
+						<form action="" id="loggin">
+							<div class="sign__container">
+								<label for="sign__email">Email</label>
+								<input
+									type="text"
+									name="sign__email"
+									id="sign__email"
+									required
+								/>
+								<label for="sign__password">Password</label>
+								<input
+									type="password"
+									id="sign__password"
+									name="sign__password"
+									required
+								/>
+							</div>
+							<button class="btn__sign" type="submit">
+								Sign in
+							</button>
+						</form>
+					</div>
 
-    <div class="loggin__wrapper">
+					<div class="form__division">
+						<div class="line__division">
+							<hr />
+						</div>
+						<div>
+							<p>or</p>
+						</div>
+						<div class="line__division">
+							<hr />
+						</div>
+					</div>
 
-      <div class="loggin__artist">
-        <div class="show__artist">
-          <h1>Artists</h1>
-          <ul id="showArtist">
+					<div class="create__wrapper">
+						<h2 class="create__title">Create Account</h2>
+						<form id="create">
+							<div class="create__container">
+								<label for="name">Name</label>
+								<input
+									type="text"
+									name="name"
+									id="name"
+									required
+								/>
 
-          </ul>
-        </div>
+								<label for="create__email">Email</label>
+								<input
+									type="text"
+									id="create__email"
+									name="create__email"
+									required
+								/>
 
-        <div class="copyright">
-          <p class="copyright-text">Copyright © José Daniel & Kendoll Castro</p>
-        </div>
-      </div>
-      <div class="form__wrapper">
-        <div class="sign__wrapper">
-          <h2 class="sign__title">Sign in</h2>
-          <form action="" id="loggin">
-            <div class="sign__container">
-              <label for="sign__email">Email</label>
-              <input type="text" name="sign__email" id="sign__email" required>
-              <label for="sign__password">Password</label>
-              <input type="password" id="sign__password" name="sign__password" required>
-            </div>
-            <button class="btn__sign" type="submit">Sign in</button>
-          </form>
-        </div>
+								<label for="create__password">Password</label>
+								<input
+									type="password"
+									id="create__password"
+									name="create__password"
+									required
+								/>
 
-        <div class="form__division">
-          <div class="line__division">
-            <hr>
-          </div>
-          <div>
-            <p>or</p>
-          </div>
-          <div class="line__division">
-            <hr>
-          </div>
-        </div>
-
-        <div class="create__wrapper">
-          <h2 class="create__title">Create Account</h2>
-          <form id="create">
-            <div class="create__container">
-              <label for="name">Name</label>
-              <input type="text" name="name" id="name" required>
-
-              <label for="create__email">Email</label>
-              <input type="text" id="create__email" name="create__email" required>
-
-              <label for="create__password">Password</label>
-              <input type="password" id="create__password" name="create__password" required>
-
-              <label for="confirm__password">Confirm Password</label>
-              <input type="password" id="confirm__password" name="confirm__password" required>
-            </div>
-            <button class="btn__create" type="submit" id="createButton">Create Account</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script type="module" src="js/artistDom.js"></script>
-  <script type="module" src="js/form.js"></script>
-</body>
-
+								<label for="confirm__password"
+									>Confirm Password</label
+								>
+								<input
+									type="password"
+									id="confirm__password"
+									name="confirm__password"
+									required
+								/>
+							</div>
+							<button
+								class="btn__create"
+								type="submit"
+								id="createButton"
+							>
+								Create Account
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="copyright">
+				<p class="copyright-text">
+					Copyright © José Daniel & Kendoll Castro
+				</p>
+			</div>
+		</div>
+		<script type="module" src="js/artistDom.js"></script>
+		<script type="module" src="js/form.js"></script>
+	</body>
 </html>

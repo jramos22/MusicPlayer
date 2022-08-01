@@ -1,105 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>daken Music</title>
+		<link rel="icon" href="img/daken-logo.png" />
+		<link rel="stylesheet" href="css/styles.css" />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+		/>
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>daken Music</title>
-    <link rel="icon" href="img/daken-logo.png">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<body>
+		<div class="principal__wrapper">
+			<div class="header__wrapper">
+				<div class="header__logo">
+					<img
+						src="img/principal-logo.png"
+						alt="logo-dake-music"
+						srcset=""
+					/>
+				</div>
+				<div class="header__menu">
+					<ul class="nav__menu">
+						<li><a href="loggin.html">Home</a></li>
+						<li><a href="#">Music Player</a></li>
+						<li><a href="profile.html">Profile</a></li>
+					</ul>
+				</div>
+			</div>
 
-</head>
+			<div class="music__display">
+				<div class="container">
+					<div class="song-details">
+						<div class="trackinfo">
+							<p class="listen__song">
+								You are listening to <span id="name"></span>
+							</p>
+							<p class="from__album">
+								From the album <span id="album"></span>
+							</p>
+						</div>
+					</div>
 
-<body>
-    <div class="principal__wrapper">
-        <div class="header__wrapper">
-            <div class="header__logo">
-                <img src="img/principal-logo.png" alt="logo-dake-music" srcset="">
-            </div>
-            <div class="header__menu">
-                <ul class="nav__menu">
-                    <li> <a href="loggin.html">Home</a></li>
-                    <li> <a href="#">Music Player</a></li>
-                    <li> <a href="profile.html">Profile</a></li>
-                </ul>
-            </div>
-        </div>
+					<canvas class="canvas" height="500"></canvas>
 
-        <div class="music__display">
+					<div class="music__controles">
+						<div class="info">
+							<div class="cont">
+								<button id="prev" class="nav">
+									<img src="img/previous-icon-x40.png" />
+								</button>
+								<button id="play" class="nav">
+									<img
+										class="pad"
+										src="img/play-icon-x45.png"
+									/>
+								</button>
+								<button id="next" class="nav">
+									<img src="img/next-icon-x40.png" />
+								</button>
+							</div>
+						</div>
 
-            <div class="container">
+						<div id="track">
+							<div id="progress"></div>
+						</div>
 
-                <div class="song-details">
-                    <div class="trackinfo">
-                        <p class="listen__song">You are listening to <span id="name"></span></p>
-                        <p class="from__album">From the album <span id="album"></span></p>
-                    </div>
-                </div>
+						<div class="actions">
+							<button class="add__song" id="add__song">
+								<img src="img/add-icon-35px.png" alt="" />
+							</button>
+							<button id="add_favorite">
+								<svg
+									width="30"
+									height="30"
+									viewBox="0 0 35 35"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										class="add__favorite"
+										d="M2.91675 12.25C2.91657 11.2035 3.12499 10.1674 3.52984 9.20231C3.93468 8.23724 4.52782 7.36254 5.2746 6.62934C6.02138 5.89614 6.90681 5.31915 7.87915 4.93208C8.85148 4.54501 9.89122 4.35563 10.9376 4.37501C12.1757 4.36843 13.401 4.62507 14.5324 5.1279C15.6637 5.63074 16.6753 6.36829 17.5001 7.29167C18.3248 6.36829 19.3364 5.63074 20.4678 5.1279C21.5992 4.62507 22.8245 4.36843 24.0626 4.37501C25.109 4.35563 26.1487 4.54501 27.121 4.93208C28.0934 5.31915 28.9788 5.89614 29.7256 6.62934C30.4723 7.36254 31.0655 8.23724 31.4703 9.20231C31.8752 10.1674 32.0836 11.2035 32.0834 12.25C32.0834 20.0608 22.7807 25.9583 17.5001 30.625C12.2311 25.919 2.91675 20.0667 2.91675 12.25Z"
+										fill="none"
+										stroke="white"
+										stroke-width="3"
+									/>
+								</svg>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-                <canvas height="700"></canvas>
+		<div id="modal_container" class="modal-container">
+			<div class="modal">
+				<div class="modal__title">
+					<h3>Add to a list</h3>
+					<button id="close">
+						<img src="img/icon-close-30px.png" alt="" />
+					</button>
+				</div>
 
-                <div class="music__controles">
-                    <div class="info">
-                        <div class="cont">
-                            <button id="prev" class="nav">
-                                <img src="img/previous-icon-x40.png" />
-                            </button>
-                            <button id="play" class="nav">
-                                <img class="pad" src="img/play-icon-x45.png" />
-                            </button>
-                            <button id="next" class="nav">
-                                <img src="img/next-icon-x40.png" />
-                            </button>
-                        </div>
-                    </div>
+				<form action="">
+					<label for="add__list">New list</label>
+					<input type="text" name="add__list" id="add-list" />
 
-                    <div id="track">
-                        <div id="progress"></div>
-                    </div>
-
-                    <div class="actions">
-                        <button class="add__song" id="add__song"><img src="img/add-icon-35px.png" alt=""></button>
-                        <button id="add_favorite">
-                            <svg width="30" height="30" viewBox="0 0 35 35" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path class="add__favorite"
-                                    d="M2.91675 12.25C2.91657 11.2035 3.12499 10.1674 3.52984 9.20231C3.93468 8.23724 4.52782 7.36254 5.2746 6.62934C6.02138 5.89614 6.90681 5.31915 7.87915 4.93208C8.85148 4.54501 9.89122 4.35563 10.9376 4.37501C12.1757 4.36843 13.401 4.62507 14.5324 5.1279C15.6637 5.63074 16.6753 6.36829 17.5001 7.29167C18.3248 6.36829 19.3364 5.63074 20.4678 5.1279C21.5992 4.62507 22.8245 4.36843 24.0626 4.37501C25.109 4.35563 26.1487 4.54501 27.121 4.93208C28.0934 5.31915 28.9788 5.89614 29.7256 6.62934C30.4723 7.36254 31.0655 8.23724 31.4703 9.20231C31.8752 10.1674 32.0836 11.2035 32.0834 12.25C32.0834 20.0608 22.7807 25.9583 17.5001 30.625C12.2311 25.919 2.91675 20.0667 2.91675 12.25Z"
-                                    fill="none" stroke="white" stroke-width="3" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal_container" class="modal-container">
-
-        <div class="modal">
-            <div class="modal__title">
-                <h3>Add to a list</h3>
-                <button id="close"><img src="img/icon-close-30px.png" alt=""></button>
-            </div>
-
-            <form action="">
-                <label for="add__list">New list</label>
-                <input type="text" name="add__list" id="add-list">
-
-                <label for="exist__list">Existing list</label>
-                <select name="exist__list" id="exist-list">
-                    <option value="">Select Playlist</option>
-                </select>
-                <div class="modal__save">
-                    <button type="submit" id="save-playlist">Save -></button>
-                </div>
-
-            </form>
-
-        </div>
-    </div>
-    <script type="module" src="js/music-player.js"></script>
-    <script type="module" src="js/modalDom.js"></script>
-</body>
-
+					<label for="exist__list">Existing list</label>
+					<select name="exist__list" id="exist-list">
+						<option value="">Select Playlist</option>
+					</select>
+					<div class="modal__save">
+						<button type="submit" id="save-playlist">
+							Save ->
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<script type="module" src="js/music-player.js"></script>
+		<script type="module" src="js/modalDom.js"></script>
+	</body>
 </html>

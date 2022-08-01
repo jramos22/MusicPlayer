@@ -1,80 +1,100 @@
 .artist__wrapper {
+	max-width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	flex-grow: 1 5;
 
-  max-width: 100%;
-
-  h2 {
-    color: white;
-    margin: 40px 0 15px;
-  }
-  span {
-    color: $fourth-color;
-  }
-  @media(min-width: 1720px){
-    margin-top: 80px;
-  }
+	h2 {
+		color: white;
+		margin: 40px 0 15px;
+	}
+	span {
+		color: $fourth-color;
+	}
+	@media (min-width: 905px) {
+		flex-direction: row-reverse;
+	}
+	@media (min-width: 1720px) {
+		margin-top: 80px;
+	}
 }
-
+.artist__songs {
+	width: 100%;
+}
 .artist__display {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	max-width: 700px;
+	@media (min-width: 905px) {
+		width: 700px;
+	}
 }
 
 .lists__songs {
-  width: 700px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+	width: 89%;
+	max-width: 700px;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 
-  li {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 30px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    background-color: $second-background;
-    border-radius: $third-border-radius;
-  }
-  img {
-    width: 45px;
-    border-radius: $first-border-radius;
-  }
-  p {
-    color: white;
-  }
-  span {
-    margin-left: 40px;
-    color: $second-text-color;
-  }
-  button {
-    border: none;
-    background-color: $second-background;
+	li {
+		display: flex;
+		justify-content: space-between;
+		padding: 5px 30px;
+		margin-bottom: 15px;
+		align-items: center;
+		background-color: $second-background;
+		border-radius: $third-border-radius;
+		width: 97%;
+	}
+	img {
+		width: 45px;
+		border-radius: $first-border-radius;
+	}
+	p {
+		color: white;
+		margin: 0 2%;
+	}
+	span {
+		margin-left: 40px;
+		color: $second-text-color;
+	}
+	button {
+		border: none;
+		background-color: $second-background;
 
-    img {
-      width: 35px;
-    }
-  }
+		img {
+			width: 35px;
+		}
+	}
 }
 
 .artist-bio {
-  background-color: $second-background;
-  border-radius: $third-border-radius;
-  border: 1px solid $third-color;
+	background-color: $second-background;
+	border-radius: $third-border-radius;
+	border: 1px solid $third-color;
+	margin-top: 82px;
+	padding: 30px 50px;
+	max-height: 614px;
 }
 
 .artist-info {
-  width: 300px;
-  padding: 30px 50px;
+	max-width: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 
-  img {
-    width: 300px;
-    border-radius: $second-border-radius;
-  }
-  h3 {
-    color: $third-text-color;
-  }
-  p {
-    color: $first-text-color;
-  }
+	img {
+		width: 100%;
+		border-radius: $second-border-radius;
+	}
+	h3 {
+		color: $third-text-color;
+	}
+	p {
+		color: $first-text-color;
+	}
 }

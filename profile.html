@@ -1,75 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/daken-logo.png">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>daken Music</title>
-</head>
-<body>
-  <div class="principal__wrapper">
-    <div class="header__wrapper">
-      <div class="header__logo">
-        <img src="img/principal-logo.png" alt="logo-dake-music" srcset="">
-      </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="img/daken-logo.png" />
+		<link rel="stylesheet" href="css/styles.css" />
+		<title>daken Music</title>
+	</head>
+	<body>
+		<div class="principal__wrapper">
+			<div class="header__wrapper">
+				<div class="header__logo">
+					<img
+						src="img/principal-logo.png"
+						alt="logo-dake-music"
+						srcset=""
+					/>
+				</div>
 
-      <div class="header__menu">
-        <ul class="nav__menu">
-          <li> <a href="loggin.html">Home</a></li>
-          <li> <a href="music-player.html">Music Player</a></li>
-          <li> <a href="#">Profile</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="profile__wrapper">
-      <div class="profile__bio">
-        <div class="profile__info">
-          <div class="profile__name">
-            <form action="#" id="nameUser">
-            </form>
-          </div>
+				<div class="header__menu">
+					<ul class="nav__menu">
+						<li><a href="loggin.html">Home</a></li>
+						<li><a href="music-player.html">Music Player</a></li>
+						<li><a href="#">Profile</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="profile__wrapper">
+				<div class="profile__bio">
+					<div class="profile__info">
+						<div class="profile__name">
+							<form action="#" id="nameUser"></form>
+						</div>
 
-          <div class="profile__recents">
-            <div class="recent__title">
-              <p>Recent Played</p>
-            </div>
-            <div class="song__recent" id="song__recent">
-            </div>
-          </div>
+						<div class="profile__recents">
+							<div class="recent__title">
+								<p>Recent Played</p>
+							</div>
+							<div class="song__recent" id="song__recent"></div>
+						</div>
 
-          <div class="profile__favorites">
-            <div class="tabs">
-              <div class="tab">
-                <input type="checkbox" id="chck1">
-                <label class="tab__label" for="chck1">Your Favorites Songs</label>
-                <div class="tab__content" id="tab__content">
-                
-                </div>
-              </div>
-            </div>
-          </div>
+						<div class="profile__favorites">
+							<div class="tabs">
+								<div class="tab">
+									<input type="checkbox" id="chck1" />
+									<label class="tab__label" for="chck1"
+										>Your Favorites Songs</label
+									>
+									<div
+										class="tab__content"
+										id="tab__content"
+									></div>
+								</div>
+							</div>
+						</div>
 
-          <div class="users__playlist">
-            <p>Your playlists</p>
-            <ul id="playlists">
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div id="showPlaylist" class="profile__info">
-        <div class="profile__name">
-          <form action="#" id="playlist">
-          </form>
-        </div>
-        <ul id="lists__songs" class="lists__songs"></ul>
-      </div>
-    </div>
-    <div class="copyright">
-      <p class="copyright-text">Copyright © José Daniel & Kendoll Castro</p>
-    </div>
-  </div>
-  <script type="module" src="./js/profileDom.js"></script>
-</body>
+						<div class="users__playlist">
+							<p>Your playlists</p>
+							<ul id="playlists"></ul>
+						</div>
+					</div>
+				</div>
+				<div id="showPlaylist" class="profile__info">
+					<div class="profile__name">
+						<form action="#" id="playlist"></form>
+					</div>
+					<ul id="lists__songs" class="lists__songs"></ul>
+				</div>
+			</div>
+			<div class="copyright">
+				<p class="copyright-text">
+					Copyright © José Daniel & Kendoll Castro
+				</p>
+			</div>
+		</div>
+		<script type="module" src="./js/profileDom.js"></script>
+	</body>
 </html>

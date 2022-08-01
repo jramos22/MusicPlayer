@@ -1,123 +1,122 @@
 .song-details {
-    margin-top: 50px;
+	margin-top: 50px;
 
-    .trackinfo {
-
-        .listen__song {
-            font-size: 20px;
-            color: $first-text-color;
-        }
-        #name {
-            color: $third-text-color;
-            font-size: 20px;
-        }
-        .from__album {
-            color: $first-text-color;
-        }
-        #album {
-            color: $sixth-color;
-        }
-    }
-    
+	.trackinfo {
+		.listen__song {
+			font-size: 20px;
+			color: $first-text-color;
+		}
+		#name {
+			color: $third-text-color;
+			font-size: 20px;
+		}
+		.from__album {
+			color: $first-text-color;
+		}
+		#album {
+			color: $sixth-color;
+		}
+	}
 }
-
 #player .trackinfo #title {
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    padding-left: 10px;
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 5px;
+	padding-left: 10px;
 }
 
 #player .trackinfo #artist {
-    padding-left: 25px;
+	padding-left: 25px;
 }
 
 #track {
-    width: 366px;
-    height: 5px;
-    background-color: #A6A7A9;
-    bottom: 115px;
-    left: 17px;
-    z-index: 10;
-    border-radius: $first-border-radius;
+	width: 366px;
+	height: 5px;
+	background-color: #a6a7a9;
+	bottom: 115px;
+	left: 17px;
+	z-index: 10;
+	border-radius: $first-border-radius;
 }
 
 #progress {
-    float: left;
-    height: 5px;
-    width: 0%;
-    background: $tenth-color;
-    border-radius: $first-border-radius;
+	float: left;
+	height: 5px;
+	width: 0%;
+	background: $tenth-color;
+	border-radius: $first-border-radius;
 }
 
-.info{
-    margin-left: 20px;
+.info {
+	margin-left: 20px;
 }
 
 .pad {
-    padding-left: 5px;
+	padding-left: 5px;
 }
 
 #prev {
-    padding-right: 5px;
+	padding-right: 5px;
 }
 
 #next {
-    padding-left: 4px;
+	padding-left: 4px;
 }
 
 .music__controles {
-    border-radius: $second-border-radius;
-    align-items: center;
-    background-color: $second-background;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
+	border-radius: $second-border-radius;
+	align-items: center;
+	background-color: $second-background;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 50px;
 }
 
 .cont {
-    display: flex;
+	display: flex;
 
-    .nav {
-        background-color: $second-background;
-        border: none;
-        cursor: pointer;
-    }
+	.nav {
+		background-color: $second-background;
+		border: none;
+		cursor: pointer;
+	}
+	img {
+		width: 30px;
+	}
 }
 
-#player{
-    display: none;
+#player {
+	display: none;
 }
 
 .actions {
-    
-    display: flex;
-    justify-content: space-between;
-    margin-right: 40px;
-    width: 100px;
+	display: flex;
+	justify-content: space-between;
+	margin-right: 40px;
+	width: 100px;
 
-    button {
-        background-color: $second-background;
-        border: none;
-        
-        img {
-            width: 30px;
-        }
-    }
+	button {
+		background-color: $second-background;
+		border: none;
+
+		img {
+			width: 30px;
+		}
+	}
 }
 
 canvas {
-    background-color: $second-background;
-    border-radius: $second-border-radius;
-    display: block;
-    max-width: 100%;
+	background-color: $second-background;
+	border-radius: $second-border-radius;
+	display: block;
+	max-width: 100%;
 }
 
 .call-to-action {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #FFF;
-    cursor: pointer;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #fff;
+	cursor: pointer;
 }

@@ -21,6 +21,11 @@ body {
       width: 70%;
       margin: 0 auto; } }
 
+.copyright {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%; }
+
 .copyright-text {
   margin-top: 5px;
   font-size: 12px;
@@ -31,13 +36,22 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-top: 20px; }
+  margin-top: 20px;
+  flex-wrap: wrap; }
   @media (min-width: 1820px) {
     .header__wrapper {
       width: 100%; } }
 
-.header__logo img {
-  width: 160px; }
+.header__logo {
+  /* img {
+		width: 160px;
+	} */ }
+  @media (min-width: 375px) {
+    .header__logo img {
+      width: 254px; } }
+  @media (min-width: 675px) {
+    .header__logo img {
+      width: 160px; } }
 
 .nav__menu {
   display: flex;
@@ -52,9 +66,11 @@ body {
       color: #ffff; }
     .nav__menu li a:hover {
       color: #FF6F1E; }
+  .nav__menu ul {
+    padding: 0px; }
 
 .header__menu ul li a:active {
-  color: #FF6F1E; }
+  color: #ff6f1e; }
 
 .modal-container {
   display: flex;
@@ -137,8 +153,10 @@ body {
 
 .loggin__wrapper {
   display: flex;
-  justify-content: space-between;
-  margin-top: 30px; }
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  overflow: hidden; }
 
 .loggin__artist {
   display: flex;
@@ -146,29 +164,31 @@ body {
   justify-content: space-between;
   width: 650px; }
 
-.show__artist h1 {
-  color: #ffff;
-  margin: 0px 0px 40px; }
-
-.show__artist ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  list-style: none;
-  margin: 0;
-  padding: 0; }
-  .show__artist ul li {
+.show__artist {
+  padding-top: 40px; }
+  .show__artist h1 {
+    color: #ffff;
+    margin: 0px 0px 0px; }
+  .show__artist ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin: 3% 4%; }
+    .show__artist ul li {
+      text-decoration: none; }
+  .show__artist #showArtist img {
+    border-radius: 15px;
+    height: 150px;
+    width: 150px; }
+  .show__artist #showArtist a {
     text-decoration: none; }
 
-.show__artist #showArtist img {
-  border-radius: 15px;
-  height: 150px;
-  width: 150px; }
-
-.show__artist #showArtist a {
-  text-decoration: none; }
-
 .form__wrapper {
+  margin-bottom: 3%;
   background-color: #211F27;
   border-radius: 15px;
   width: 400px; }
@@ -209,7 +229,7 @@ body {
   letter-spacing: normal;
   width: 100%; }
   .btn__sign:hover {
-    background-color: #3703A4; }
+    background-color: #3703a4; }
 
 .form__division {
   align-items: center;
@@ -260,10 +280,17 @@ body {
 
 .logged__user {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
   margin-top: 150px; }
   .logged__user h1 {
     margin-top: -30px; }
+  @media (min-width: 375px) {
+    .logged__user {
+      margin-top: 0px; } }
+  @media (min-width: 1220px) {
+    .logged__user {
+      margin-top: 150px; } }
 
 .artist__view {
   display: flex;
@@ -305,7 +332,10 @@ body {
   border-radius: 15px;
   border: 1px solid #6320EE;
   padding: 30px;
-  width: 380px; }
+  max-width: 380px; }
+  @media (min-width: 375px) {
+    .logged__view {
+      width: 80%; } }
 
 .logged__info .logged__text h2 {
   color: #ffff;
@@ -316,44 +346,62 @@ body {
   margin-bottom: 40px; }
 
 .logged__img {
-  display: flex; }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
   .logged__img .logged__img-artis img {
     border-radius: 10px;
     width: 200px; }
 
-.logged__song {
-  margin-left: 40px; }
-  .logged__song h3 {
-    color: #ffff;
-    margin-left: 5px; }
-  .logged__song p {
-    color: #79797B;
-    margin-left: 5px; }
-  .logged__song button {
-    background-color: #211F27;
-    border: none;
-    padding: 0; }
-    .logged__song button img {
-      width: 35px; }
+.logged__song h3 {
+  color: #ffff;
+  margin-left: 5px; }
+
+.logged__song p {
+  color: #79797B;
+  margin-left: 5px; }
+
+.logged__song button {
+  background-color: #211F27;
+  border: none;
+  padding: 0; }
+  .logged__song button img {
+    width: 35px; }
 
 .artist__wrapper {
-  max-width: 100%; }
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-grow: 1 5; }
   .artist__wrapper h2 {
     color: white;
     margin: 40px 0 15px; }
   .artist__wrapper span {
     color: #FF6F1E; }
+  @media (min-width: 905px) {
+    .artist__wrapper {
+      flex-direction: row-reverse; } }
   @media (min-width: 1720px) {
     .artist__wrapper {
       margin-top: 80px; } }
 
+.artist__songs {
+  width: 100%; }
+
 .artist__display {
   display: flex;
   flex-direction: row;
-  justify-content: space-between; }
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 700px; }
+  @media (min-width: 905px) {
+    .artist__display {
+      width: 700px; } }
 
 .lists__songs {
-  width: 700px;
+  width: 89%;
+  max-width: 700px;
   list-style: none;
   padding: 0;
   margin: 0; }
@@ -362,15 +410,16 @@ body {
     justify-content: space-between;
     padding: 5px 30px;
     margin-bottom: 15px;
-    display: flex;
     align-items: center;
     background-color: #211F27;
-    border-radius: 15px; }
+    border-radius: 15px;
+    width: 97%; }
   .lists__songs img {
     width: 45px;
     border-radius: 5px; }
   .lists__songs p {
-    color: white; }
+    color: white;
+    margin: 0 2%; }
   .lists__songs span {
     margin-left: 40px;
     color: #79797B; }
@@ -383,13 +432,18 @@ body {
 .artist-bio {
   background-color: #211F27;
   border-radius: 15px;
-  border: 1px solid #6320EE; }
+  border: 1px solid #6320EE;
+  margin-top: 82px;
+  padding: 30px 50px;
+  max-height: 614px; }
 
 .artist-info {
-  width: 300px;
-  padding: 30px 50px; }
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; }
   .artist-info img {
-    width: 300px;
+    width: 100%;
     border-radius: 10px; }
   .artist-info h3 {
     color: #FF6F1E; }
@@ -399,14 +453,17 @@ body {
 .profile__wrapper {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 50px; }
+  margin-top: 50px;
+  width: 100%; }
 
 .profile__bio {
   background-color: #211F27;
   border-radius: 15px;
-  padding: 30px;
-  width: 500px; }
+  padding: 5px;
+  width: 100%;
+  max-width: 400px; }
 
 .profile__name {
   margin-bottom: 15px; }
@@ -433,9 +490,7 @@ body {
     height: 30px;
     width: 30px; }
   .profile__name #playlist {
-    align-items: center;
-    display: flex;
-    width: 100%; }
+    display: flex; }
     .profile__name #playlist label {
       color: #ffff;
       font-size: 18px;
@@ -450,74 +505,86 @@ body {
       margin-left: 20px;
       padding: 0; }
 
-.profile__info {
-  margin: 0 auto; }
-  .profile__info p {
-    color: #ffff;
-    font-size: 18px; }
-  .profile__info .button__save--playlist {
-    background-color: #080808;
-    border-radius: 5px;
-    border: 1px solid #008926;
-    color: #008926;
-    font-size: 18px;
-    height: 35px;
-    margin-left: 155px;
-    visibility: hidden;
-    width: 75px; }
-    .profile__info .button__save--playlist:hover {
-      background-color: #008926;
-      color: #ffff; }
-  .profile__info .button__delete--plst {
-    background-color: #080808;
-    border-radius: 5px;
-    border: 1px solid #E13600;
-    color: #E13600;
-    font-size: 18px;
-    height: 35px;
-    margin-left: 15px;
-    visibility: hidden; }
-    .profile__info .button__delete--plst:hover {
-      background-color: #E13600;
-      color: #ffff; }
-  .profile__info .btn__delete {
-    width: 30px;
-    visibility: hidden; }
-  .profile__info .show__buttons {
-    visibility: visible; }
-  .profile__info .profile__recents {
+.profile__info p {
+  color: #ffff;
+  font-size: 18px; }
+
+.profile__info .button__save--playlist {
+  background-color: #080808;
+  border-radius: 5px;
+  border: 1px solid #008926;
+  color: #008926;
+  font-size: 18px;
+  height: 35px;
+  margin-left: 19%;
+  visibility: hidden;
+  width: 75px; }
+  .profile__info .button__save--playlist:hover {
+    background-color: #008926;
+    color: #ffff; }
+
+.profile__info .button__delete--plst {
+  background-color: #080808;
+  border-radius: 5px;
+  border: 1px solid #E13600;
+  color: #E13600;
+  font-size: 18px;
+  height: 35px;
+  margin-left: 15px;
+  visibility: hidden; }
+  .profile__info .button__delete--plst:hover {
+    background-color: #E13600;
+    color: #ffff; }
+
+.profile__info .btn__delete {
+  width: 30px;
+  visibility: hidden; }
+
+.profile__info .show__buttons {
+  visibility: visible; }
+
+.profile__info .profile__recents {
+  align-items: center;
+  background-color: #1B1B1B;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 0 10px 10px 10px; }
+  .profile__info .profile__recents .recent__title {
     align-items: center;
-    background-color: #1B1B1B;
     border-radius: 15px;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    margin: 20px 0;
-    padding: 0 10px 10px 10px; }
-    .profile__info .profile__recents .recent__title {
-      align-items: center;
-      border-radius: 15px;
-      display: flex;
-      justify-content: space-between;
-      padding: 10px;
-      width: 100%; }
-      .profile__info .profile__recents .recent__title p {
-        margin: 10px; }
-    .profile__info .profile__recents .song__recent {
-      align-items: center;
-      display: flex;
-      flex-direction: row;
-      float: left;
-      justify-content: space-between;
-      width: 100%; }
-  .profile__info .profile__favorites {
+    padding: 10px;
+    width: 100%; }
+    .profile__info .profile__recents .recent__title p {
+      margin: 10px; }
+  .profile__info .profile__recents .song__recent {
     align-items: center;
     display: flex;
     flex-direction: row;
-    justify-content: space-between; }
-    .profile__info .profile__favorites img {
-      height: 30px;
-      width: 30px; }
+    float: left;
+    justify-content: space-between;
+    width: 100%; }
+
+.profile__info .profile__favorites {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  .profile__info .profile__favorites img {
+    height: 30px;
+    width: 30px; }
+
+#showPlaylist {
+  width: 100%;
+  margin-top: 10%; }
+  @media (min-width: 1060px) {
+    #showPlaylist {
+      width: 57%;
+      margin-top: 0%; } }
 
 .recent__display {
   align-items: center;
@@ -556,11 +623,11 @@ body {
       background: #1B1B1B;
       border-radius: 15px 15px 0 0; }
     .tab__label::after {
-      content: "\276F";
+      content: '\276F';
       height: 18px;
       margin-right: 7px;
       text-align: center;
-      transition: all .35s;
+      transition: all 0.35s;
       width: 18px; }
   .tab__content {
     background: #1B1B1B;
@@ -568,7 +635,7 @@ body {
     float: left;
     max-height: 0;
     padding: 0 1em;
-    transition: all .35s;
+    transition: all 0.35s;
     min-width: 200px; }
     .tab__content div {
       float: left; }
@@ -662,7 +729,7 @@ input:checked {
 #track {
   width: 366px;
   height: 5px;
-  background-color: #A6A7A9;
+  background-color: #a6a7a9;
   bottom: 115px;
   left: 17px;
   z-index: 10;
@@ -701,6 +768,8 @@ input:checked {
     background-color: #211F27;
     border: none;
     cursor: pointer; }
+  .cont img {
+    width: 30px; }
 
 #player {
   display: none; }
@@ -727,5 +796,5 @@ canvas {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #FFF;
+  color: #fff;
   cursor: pointer; }

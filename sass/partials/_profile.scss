@@ -1,304 +1,310 @@
 .profile__wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 50px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-top: 50px;
+	width: 100%;
 }
 
 .profile__bio {
-  background-color: $second-background;
-  border-radius: $third-border-radius;
-  padding: 30px;
-  width: 500px;
+	background-color: $second-background;
+	border-radius: $third-border-radius;
+	padding: 5px;
+	width: 100%;
+	max-width: 400px;
 }
 
 .profile__name {
-  margin-bottom: 15px;
-  
-  #nameUser {
-    
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+	margin-bottom: 15px;
 
-    label {
-      color: $eighth-color;
-      font-size: 18px;
-      padding: 10px 10px;
-      width: 300px;
-    }
-    input {
-      display: none;
-      width: 300px;
-    }
-    .btn__edit-name {
-      background-color: $second-color;
-      border: none;
-      cursor: pointer;
-      margin-right: 10px;
-      padding: 0;
-    }
-  }
+	#nameUser {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
 
-  img {
-    height: 30px;
-    width: 30px;
-  }
+		label {
+			color: $eighth-color;
+			font-size: 18px;
+			padding: 10px 10px;
+			width: 300px;
+		}
+		input {
+			display: none;
+			width: 300px;
+		}
+		.btn__edit-name {
+			background-color: $second-color;
+			border: none;
+			cursor: pointer;
+			margin-right: 10px;
+			padding: 0;
+		}
+	}
 
-  #playlist {
+	img {
+		height: 30px;
+		width: 30px;
+	}
 
-    align-items: center;
-    display: flex;
-    width: 100%;
+	#playlist {
+		//align-items: center;
+		display: flex;
+		//idth: 100%;
 
-    label {
-      color: $eighth-color;
-      font-size: 18px;
-      padding: 10px 10px;
-      width: 250px;
-    }
-    input {
-      display: none;
-    }
-    .btn__edit-name {
-      background-color: $second-color;
-      border: none;
-      cursor: pointer;
-      margin-left: 20px;
-      padding: 0;
-    }
-  }
+		label {
+			color: $eighth-color;
+			font-size: 18px;
+			padding: 10px 10px;
+			width: 250px;
+		}
+		input {
+			display: none;
+		}
+		.btn__edit-name {
+			background-color: $second-color;
+			border: none;
+			cursor: pointer;
+			margin-left: 20px;
+			padding: 0;
+		}
+	}
 }
 
 .profile__info {
-  margin: 0 auto;
+	//margin: 0 auto;
+	//width: 100%;
 
-  p {
-    color: $first-text-color;
-    font-size: 18px;
-  }
+	p {
+		color: $first-text-color;
+		font-size: 18px;
+	}
 
-  .button__save--playlist {
-    background-color: $first-background;
-    border-radius: $first-border-radius;
-    border: 1px solid $sixth-color;
-    color: $sixth-color;
-    font-size: 18px;
-    height: 35px;
-    margin-left: 155px;
-    visibility: hidden;
-    width: 75px;
-    &:hover{
-      background-color: $sixth-color;
-      color: $first-text-color;
-    }
-  }
+	.button__save--playlist {
+		background-color: $first-background;
+		border-radius: $first-border-radius;
+		border: 1px solid $sixth-color;
+		color: $sixth-color;
+		font-size: 18px;
+		height: 35px;
+		margin-left: 19%;
+		visibility: hidden;
+		width: 75px;
+		&:hover {
+			background-color: $sixth-color;
+			color: $first-text-color;
+		}
+	}
 
-  .button__delete--plst {
-    background-color: $first-background;
-    border-radius: $first-border-radius;
-    border: 1px solid $twelfth-color;
-    color: $twelfth-color;
-    font-size: 18px;
-    height: 35px;
-    margin-left: 15px;
-    visibility: hidden;
-  
-    &:hover{
-      background-color: $twelfth-color;
-      color: $first-text-color;
-    }
-  }
+	.button__delete--plst {
+		background-color: $first-background;
+		border-radius: $first-border-radius;
+		border: 1px solid $twelfth-color;
+		color: $twelfth-color;
+		font-size: 18px;
+		height: 35px;
+		margin-left: 15px;
+		visibility: hidden;
 
-  .btn__delete {
-    width: 30px;
-    visibility: hidden;
-  }
+		&:hover {
+			background-color: $twelfth-color;
+			color: $first-text-color;
+		}
+	}
 
-  .show__buttons{
-    visibility: visible;
-  }
+	.btn__delete {
+		width: 30px;
+		visibility: hidden;
+	}
 
-  .profile__recents {
+	.show__buttons {
+		visibility: visible;
+	}
 
-    align-items: center;
-    background-color: $nineth-color;
-    border-radius: $third-border-radius;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 20px 0;
-    padding: 0 10px 10px 10px;
+	.profile__recents {
+		align-items: center;
+		background-color: $nineth-color;
+		border-radius: $third-border-radius;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		margin: 20px 0;
+		padding: 0 10px 10px 10px;
 
-    .recent__title {
-      align-items: center;
-      border-radius: 15px;
-      display: flex;
-      justify-content: space-between;
-      padding: 10px;
-      width: 100%;
-      p{
-        margin: 10px;
-      }
-    }
-    .song__recent {
-      align-items: center; 
-      display: flex;
-      flex-direction: row;
-      float: left;
-      justify-content: space-between;
-      width: 100%;
-    }   
-  }
+		.recent__title {
+			align-items: center;
+			border-radius: 15px;
+			display: flex;
+			justify-content: space-between;
+			padding: 10px;
+			width: 100%;
+			p {
+				margin: 10px;
+			}
+		}
+		.song__recent {
+			align-items: center;
+			display: flex;
+			flex-direction: row;
+			float: left;
+			justify-content: space-between;
+			width: 100%;
+		}
+	}
 
-  .profile__favorites {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+	.profile__favorites {
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
 
-    img {
-      height: 30px;
-      width: 30px;
-    }
-  }
+		img {
+			height: 30px;
+			width: 30px;
+		}
+	}
 }
-
+#showPlaylist {
+	width: 100%;
+	margin-top: 10%;
+	@media (min-width: 1060px) {
+		width: 57%;
+		margin-top: 0%;
+	}
+}
 .recent__display {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  width: 90%;
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+	width: 90%;
 
-  img {
-    height: 30px;
-    width: 30px;
-  }
-  button {
-    background-color: $nineth-color;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-  } 
+	img {
+		height: 30px;
+		width: 30px;
+	}
+	button {
+		background-color: $nineth-color;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+	}
 }
 
 .tabs {
-  border-radius: $third-border-radius;
-  border: none;
-  overflow: hidden;
+	border-radius: $third-border-radius;
+	border: none;
+	overflow: hidden;
 }
 .tab {
-  color: white;
-  overflow: hidden;
-  width: 100%;
-  
-  &__label {
-    align-items: center;
-    background: $second-color;
-    cursor: pointer;
-    display: flex;
-    font-size: 18px;
-    height: 40px;
-    justify-content: space-between;
-    padding: 10px 10px;
-    
-    &:hover {
-      background: $nineth-color;
-      border-radius: 15px 15px 0 0;
-    }
-    &::after {
-      content: "\276F";
-      height: 18px;
-      margin-right: 7px;
-      text-align: center;
-      transition: all .35s;
-      width: 18px;
-    }
-  }
-  &__content {
-    background: $nineth-color;
-    color: white;
-    float: left;
-    max-height: 0;
-    padding: 0 1em;
-    transition: all .35s;
-    min-width: 200px;
-    div{
-      float: left;
-    }
-    p{
-      margin-left: 100px;
-      float: left;
-    }
-    img {
-      float: left;
-      height: 30px;
-      margin-left: 5px;
-      margin-top: 15px;
-      width: 30px;
-    }
-    button {
-      background-color: $nineth-color;
-      border: none;
-      cursor: pointer;
-      float: left;
-      margin-right: 10px;
-      padding: 0;
-    }
-  }
-  &-close {
-    background: white;
-    cursor: pointer;
-    display: flex;
-    font-size: 0.75em;
-    justify-content: flex-end;
-    padding: 16px;
-    &:hover {
-      background: $second-background;
-    }
-  }
-  input {
-    display: none;
-  }
+	color: white;
+	overflow: hidden;
+	width: 100%;
+
+	&__label {
+		align-items: center;
+		background: $second-color;
+		cursor: pointer;
+		display: flex;
+		font-size: 18px;
+		height: 40px;
+		justify-content: space-between;
+		padding: 10px 10px;
+
+		&:hover {
+			background: $nineth-color;
+			border-radius: 15px 15px 0 0;
+		}
+		&::after {
+			content: '\276F';
+			height: 18px;
+			margin-right: 7px;
+			text-align: center;
+			transition: all 0.35s;
+			width: 18px;
+		}
+	}
+	&__content {
+		background: $nineth-color;
+		color: white;
+		float: left;
+		max-height: 0;
+		padding: 0 1em;
+		transition: all 0.35s;
+		min-width: 200px;
+		div {
+			float: left;
+		}
+		p {
+			margin-left: 100px;
+			float: left;
+		}
+		img {
+			float: left;
+			height: 30px;
+			margin-left: 5px;
+			margin-top: 15px;
+			width: 30px;
+		}
+		button {
+			background-color: $nineth-color;
+			border: none;
+			cursor: pointer;
+			float: left;
+			margin-right: 10px;
+			padding: 0;
+		}
+	}
+	&-close {
+		background: white;
+		cursor: pointer;
+		display: flex;
+		font-size: 0.75em;
+		justify-content: flex-end;
+		padding: 16px;
+		&:hover {
+			background: $second-background;
+		}
+	}
+	input {
+		display: none;
+	}
 }
 
 input:checked {
-  display: none;
-  + .tab__label {
-    background: $nineth-color;
-    &::after {
-      transform: rotate(90deg);
-    }
-  }
-  ~ .tab__content {
-    max-height: 100vh;
-    padding: 1em;
-  }
+	display: none;
+	+ .tab__label {
+		background: $nineth-color;
+		&::after {
+			transform: rotate(90deg);
+		}
+	}
+	~ .tab__content {
+		max-height: 100vh;
+		padding: 1em;
+	}
 }
 
 .users__playlist {
-
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  li button {
-    background-color: $second-background;
-    border-radius: $second-border-radius;
-    border: none;
-    color: $first-text-color;
-    font-size: 18px;
-    height: 50px;
-    margin-bottom: 10px;
-    padding: 10px 10px;
-    text-align: start;
-    width: 100%;
-  }
-  li button:hover {
-    background-color: $nineth-color;
-    border: 1px solid $fifth-color;
-  }
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+	li button {
+		background-color: $second-background;
+		border-radius: $second-border-radius;
+		border: none;
+		color: $first-text-color;
+		font-size: 18px;
+		height: 50px;
+		margin-bottom: 10px;
+		padding: 10px 10px;
+		text-align: start;
+		width: 100%;
+	}
+	li button:hover {
+		background-color: $nineth-color;
+		border: 1px solid $fifth-color;
+	}
 }
-

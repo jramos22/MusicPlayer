@@ -1,42 +1,54 @@
 .header__wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-top: 20px;
-
-  @media(min-width: 1820px){
-    width: 100%;
-  }
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	margin-top: 20px;
+	flex-wrap: wrap;
+	@media (min-width: 1820px) {
+		width: 100%;
+	}
 }
 
 .header__logo {
-
-  img {
-    width: 160px;
-  }
+	/* img {
+		width: 160px;
+	} */
+	@media (min-width: 375px) {
+		img {
+			width: 254px;
+		}
+	}
+	@media (min-width: 675px) {
+		img {
+			width: 160px;
+		}
+	}
 }
 
 .nav__menu {
-  display: flex;
-  list-style: none;
-  li {
-    color: white;
-    margin-left: 30px;
+	display: flex;
+	list-style: none;
+	li {
+		color: white;
+		margin-left: 30px;
 
-    a:link {
-      color: white;
-      text-decoration: none;
-    }
-    a:visited {
-      color: $eighth-color;
-    }
-    a:hover {
-      color: $third-text-color;
-    }
-  }
+		a:link {
+			color: white;
+			text-decoration: none;
+		}
+		a:visited {
+			color: $eighth-color;
+		}
+		a:hover {
+			color: $third-text-color;
+		}
+	}
+	ul {
+		padding: 0px;
+	}
 }
 
 .header__menu ul li a:active {
-  color: #FF6F1E;
+	color: #ff6f1e;
 }
